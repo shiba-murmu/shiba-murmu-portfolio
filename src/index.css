@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+body {
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300; /* Adjusted font weight  300 to 800*/
+    font-style: normal;
+}
+
+/* For Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px; /* scrollbar width */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* track color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d1d1d1, #8a8381);
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c7c7c, #797979);
+}
+
