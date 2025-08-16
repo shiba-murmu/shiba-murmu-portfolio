@@ -36,8 +36,8 @@ const Urls = {
     liveDemo: "https://new-version-chichat.vercel.app/"
   },
 // Career list system college project.
-  CAREER_LIST_SYSTEM: {
-    title: "Career List System",
+  CAREER_LIFT_SYSTEM: {
+    title: "Career Lift System",
     description: "A web application for to help students to choose their career paths.",
     tech : ["React", "Tailwind CSS", "Django"],
     image: "/careerlift.png",

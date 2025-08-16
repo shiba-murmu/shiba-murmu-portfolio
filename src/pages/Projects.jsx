@@ -21,12 +21,12 @@ function Projects() {
                     />
                     {/* <p className='text-lg md:text-2xl'>Here are some of my recent projects:</p> */}
                     < Project_card
-                        path={Urls.CAREER_LIST_SYSTEM.image}
-                        title={Urls.CAREER_LIST_SYSTEM.title}
-                        description={Urls.CAREER_LIST_SYSTEM.description}
-                        tech={Urls.CAREER_LIST_SYSTEM.tech}
-                        github={Urls.CAREER_LIST_SYSTEM.github}
-                        liveDemo={Urls.CAREER_LIST_SYSTEM.liveDemo}
+                        path={Urls.CAREER_LIFT_SYSTEM.image}
+                        title={Urls.CAREER_LIFT_SYSTEM.title}
+                        description={Urls.CAREER_LIFT_SYSTEM.description}
+                        tech={Urls.CAREER_LIFT_SYSTEM.tech}
+                        github={Urls.CAREER_LIFT_SYSTEM.github}
+                        liveDemo={Urls.CAREER_LIFT_SYSTEM.liveDemo}
                         livebuttonValue="Live Demo"
                     />
 
@@ -37,7 +37,7 @@ function Projects() {
                         tech={Urls.BUYME.tech}
                         github={Urls.BUYME.github}
                         liveDemo={Urls.BUYME.liveDemo}
-                        livebuttonValue="Live Demo"
+                        livebuttonValue="Not live"
                     />
 
                     <Project_card
@@ -47,7 +47,7 @@ function Projects() {
                         tech={Urls.CHATCONNECT.tech}
                         github={Urls.CHATCONNECT.github}
                         liveDemo={Urls.CHATCONNECT.liveDemo}
-                        livebuttonValue="Live Demo"
+                        livebuttonValue="Not live"
                     />
 
                     <Project_card
