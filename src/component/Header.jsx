@@ -12,15 +12,15 @@ function Header() {
                         </svg>
                     </div>
                 </div>
-                <div className='hidden md:w-1/2 md:flex gap-3 items-center justify-end mr-10'>
+                <div className='hidden md:w-1/2 md:flex gap-3 text-lg items-center justify-end mr-10'>
                     <div>Web developer</div>
                     <Link to={'/contact'}>
-                        <span className='text-md border rounded-4xl p-1.5 md:px-6 hover:cursor-pointer hover:bg-[#98197c] hover:border-[white] hover:text-white'>Say Hello</span>
+                        <span className='text-lg border rounded-4xl p-1.5 md:p-2 md:px-6 hover:cursor-pointer hover:bg-[#98197c] hover:border-none hover:text-white'>Say Hello</span>
                     </Link>
                 </div>
                 <div>
                     <Link to={'/contact'} className='md:hidden'>
-                        <span className='border md:hidden text-sm rounded-4xl p-2 px-5 hover:cursor-pointer hover:bg#98197c] hover:border-[white] hover:text-white'>Say hello</span>
+                        <span className='border md:hidden text-sm rounded-4xl p-2 px-5 hover:cursor-pointer hover:bg-[#98197c] hover:border-[white] hover:text-white'>Say hello</span>
                     </Link>
                 </div>
             </div>
