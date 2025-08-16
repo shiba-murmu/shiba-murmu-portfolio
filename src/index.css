@@ -5,6 +5,7 @@ body {
     font-optical-sizing: auto;
     font-weight: 300; /* Adjusted font weight  300 to 800*/
     font-style: normal;
+    height: 100vh;
     color : white;
     /* background-color : rgb(64, 65, 65); */
     background: url('/background2.jpg') no-repeat fixed center / cover;
