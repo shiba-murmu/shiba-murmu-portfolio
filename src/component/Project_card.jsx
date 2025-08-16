@@ -11,8 +11,8 @@ function Project_card({path, title, description, tech, github, liveDemo , livebu
                     <p className='text-sm'><strong className='font-bold text-[#98197c]'>Technologies:</strong> {tech.join(", ")}</p>
                 </div>
                 <div className='flex justify-evenly w-full gap-3'>
-                    <a href={github} className='border rounded-2xl bg-[#6806ed] text-white py-1 px-3'>GitHub</a>
-                    <a href={liveDemo} className='border rounded-2xl bg-[#6806ed] text-white py-1 px-3'>{livebuttonValue}</a>
+                    <a href={github} className=' rounded-2xl bg-[#98197c] text-white py-1 px-5'>GitHub</a>
+                    <a href={liveDemo} className=' rounded-2xl bg-[#98197c] text-white py-1 px-5'>{livebuttonValue}</a>
                 </div>
             </div>
         </>
