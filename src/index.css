@@ -8,8 +8,8 @@ body {
     height: 100vh;
     color : white;
     /* background-color : rgb(64, 65, 65); */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-    url('/background2.jpg') no-repeat fixed center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    url('/background.jpg') no-repeat fixed center / cover;
     /* background: no-repeat fixed center / cover; */
     overflow-y: scroll; /* Enable vertical scrolling */
 }
