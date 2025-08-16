@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import emailjs from '@emailjs/browser';
+import { useState } from 'react'
+import { toast } from 'react-toastify';
 function Contact() {
+    const [buttonDisable , setButtonDisable] = useState(false);
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        setButtonDisable(true);
+
+        emailjs.sendForm(
+            'service_tvgav8u',     // replace with your actual Service ID
+            'template_s6tjmcd',    // replace with your actual Template ID
+            form.current,
+            'BSy9cIDFKx-RZ3zhm'      // replace with your actual Public Key
+        ).then(
+            (result) => {
+                toast.success("Message sent successfully!");
+                form.current.reset();
+                setButtonDisable(false);
+            },
+            (error) => {
+                toast.error("Error sending message!");
+                console.error(error.text);
+                setButtonDisable(false);
+            }
+        );
+    };
     return (
         <>
             <div>
@@ -13,14 +42,16 @@ function Contact() {
                 </div>
                 <div className='flex flex-col md:flex-row justify-between items-center'>
                     <div className='w-[80%] md:w-[50%] '>
-                        <form action="" className='flex flex-col gap-2 md:p-10'>
+                        <form action="" ref={form} onSubmit={sendEmail} className='flex flex-col gap-2 md:p-10'>
                             <label htmlFor="name" className='font-bold'>Your name</label>
-                            <input type="text" className='border p-2 rounded w-full' placeholder="Your Name" />
+                            <input type="text" name='name' className='border p-2 rounded w-full' required placeholder="Your Name" />
                             <label htmlFor="email" className='font-bold'>Email address</label>
-                            <input type="email" className='border p-2 rounded w-full' placeholder="Your Email" />
+                            <input type="email" name='email' className='border p-2 rounded w-full' required placeholder="Your Email" />
                             <label htmlFor="message" className='font-bold'>Message</label>
-                            <textarea className='border input-style  p-2 rounded w-full h-40' placeholder="Your Message"></textarea>
-                            <button type="submit" className='bg-[#98197c] mt-5 focus:cursor-pointer hover:cursor-pointer text-white py-2 px-4 rounded'>Send message</button>
+                            <textarea name='message' className='border input-style  p-2 rounded w-full h-40' required placeholder="Your Message"></textarea>
+                            <button type="submit" disabled={buttonDisable} className='bg-[#98197c] mt-5 focus:cursor-pointer hover:cursor-pointer text-white py-2 px-4 rounded'>{
+                                buttonDisable ? "Sending..." : "Send message"
+                            }</button>
                         </form>
                     </div>
                     <div className=' my-5 flex justify-center items-center w-[80%] md:w-[50%]'>
