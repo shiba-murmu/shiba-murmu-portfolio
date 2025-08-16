@@ -5,7 +5,7 @@ import Project_card from '../component/Project_card'
 function Projects() {
     return (
         <>
-            <div className='h-screen p-5'>
+            <div className='p-5'>
                 <div className='flex item-center justify-center'>
                     <span className='text-2xl font-bold md:text-4xl'>My work</span>
                 </div>
