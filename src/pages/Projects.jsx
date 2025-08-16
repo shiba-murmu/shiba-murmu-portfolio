@@ -61,7 +61,7 @@ function Projects() {
                     />
 
                    
-                    <div className='bg-gray-300 px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
+                    <div className=' px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
                         <img src="/projects.gif" alt="" className='rounded-2xl' />
                     </div>
 
