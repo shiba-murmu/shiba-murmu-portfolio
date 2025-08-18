@@ -5,7 +5,7 @@ import Aboutme from '../pages/Aboutme'
 import Technical_skills from '../pages/Technical_skills'
 import Projects from '../pages/Projects'
 import Stay_in_touch from '../pages/Stay_in_touch'
-import Education from '../pages/Education'
+
 
 
 function Container() {
@@ -18,7 +18,6 @@ function Container() {
                 < Aboutme />
                 < Technical_skills />
                 < Projects />
-                < Education />
                 < Stay_in_touch />
             </div>
         </>
