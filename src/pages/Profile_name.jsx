@@ -13,11 +13,11 @@ function Profile_name() {
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 text-center'>
                     <h1 className='text-4xl font-bold md:text-6xl'>Shiba Murmu</h1>
-                    <h2 className='text-md md:text-lg text-[#98197c]'>Web developer</h2>
+                    <h2 className='text-md md:text-lg text-[#6806ed]'>Web developer</h2>
                     <p>Turning ideas into clean, user-friendly, and impactful code.</p>
                 </div>
                 <div className='flex gap-5'>
-                    <a href="/resume.pdf" download={'Shiba_Murmu_Resume.pdf'} className='border-b-2 bg-[#98197c] text-white py-2 px-4 rounded'>Download resume</a>
+                    <a href="/resume.pdf" download={'Shiba_Murmu_Resume.pdf'} className='border-b-2 bg-[#6806ed] text-white py-2 px-4 rounded'>Download resume</a>
                 </div>
             </div>
         </>

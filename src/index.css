@@ -6,10 +6,12 @@ body {
     font-weight: 300; /* Adjusted font weight  300 to 800*/
     font-style: normal;
     height: 100vh;
-    color : white;
+    color : rgb(11, 11, 11);
     /* background-color : rgb(64, 65, 65); */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-    url('/background.jpg') no-repeat fixed center / cover; /* background image now can 
+    background-color: rgb(255, 255, 255);
+    /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+     no-repeat fixed center / cover; */
+    /* background image now can 
     be change to any other type if needed */
     /* background: no-repeat fixed center / cover; */
     overflow-y: scroll; /* Enable vertical scrolling */
@@ -33,3 +35,8 @@ body {
   background: linear-gradient(180deg, #7c7c7c, #797979);
 }
 
+:root {
+    --cardbackground-color : #98197c;
+    --smallText-color : black;
+    --footerBackground-color : 
+}

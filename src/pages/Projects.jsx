@@ -6,8 +6,8 @@ function Projects() {
     return (
         <>
             <div className='p-5'>
-                <div className='flex item-center justify-center'>
-                    <span className='text-2xl font-bold md:text-4xl'>My work</span>
+                <div className='flex my-10 item-center justify-Start'>
+                    <span className='text-2xl md:text-4xl text-white font-bold border-l-1 px-4 py-2 rounded-r-md bg-[#6806ed]'>My work</span>
                 </div>
                 <div className='grid mt-5  grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-10'>
                     < Project_card

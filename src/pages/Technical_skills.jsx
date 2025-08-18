@@ -4,8 +4,8 @@ function Technical_skills() {
     return (
         <>
             <div className='md:h-[70vh]  p-5'>
-                <div className='mt-20 md:my-15'>
-                    <span className='text-2xl md:text-4xl font-bold border-l-1 px-4 py-2 rounded-r-md bg-[#98197c]'>Technical skills</span>
+                <div className='mt-20 mb-5 md:my-15'>
+                    <span className='text-2xl md:text-4xl text-white font-bold border-l-1 px-4 py-2 rounded-r-md bg-[#6806ed]'>Technical skills</span>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-4 gap-x-1 gap-y-3'>
                     <div className=' rounded-xl h-[3rem] flex justify-start md:justify-center items-center gap-3'>
