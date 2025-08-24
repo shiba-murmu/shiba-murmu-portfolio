@@ -7,28 +7,27 @@ function Contact() {
     const [buttonDisable , setButtonDisable] = useState(false);
     const form = useRef();
 
-    const sendEmail = (e) => {
+    const sendEmail = async (e) => {
         e.preventDefault();
 
         setButtonDisable(true);
 
-        emailjs.sendForm(
-            'service_zqetwdv',     // replace with your actual Service ID
-            'template_r9c6ket',    // replace with your actual Template ID
-            form.current,
-            'QoDbsUGWlLCaqvqjS'      // replace with your actual Public Key
-        ).then(
-            (result) => {
-                toast.success("Message sent successfully!");
-                form.current.reset();
-                setButtonDisable(false);
-            },
-            (error) => {
-                toast.error("Error sending message!");
-                console.error(error.text);
-                setButtonDisable(false);
-            }
-        );
+        try {
+            await emailjs.sendForm(
+                'service_937fhxn',     // replace with your actual Service ID
+                'template_r9c6ket',    // replace with your actual Template ID
+                form.current,
+                'QoDbsUGWlLCaqvqjS'      // replace with your actual Public Key
+
+            );
+            toast.success('Message sent successfully')
+            form.current.reset();
+        } catch (error) {
+            console.error('Error sending email:', error);
+            toast.error('Failed to send message. Please try again later.');
+        } finally {
+            setButtonDisable(false);
+        }
     };
     return (
         <>
