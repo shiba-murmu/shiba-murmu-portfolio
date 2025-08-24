@@ -13,10 +13,10 @@ function Contact() {
         setButtonDisable(true);
 
         emailjs.sendForm(
-            'service_tvgav8u',     // replace with your actual Service ID
-            'template_s6tjmcd',    // replace with your actual Template ID
+            'service_zqetwdv',     // replace with your actual Service ID
+            'template_r9c6ket',    // replace with your actual Template ID
             form.current,
-            'BSy9cIDFKx-RZ3zhm'      // replace with your actual Public Key
+            'QoDbsUGWlLCaqvqjS'      // replace with your actual Public Key
         ).then(
             (result) => {
                 toast.success("Message sent successfully!");
