@@ -4,7 +4,7 @@ function Project_card({path, title, description, tech, github, liveDemo , livebu
     return (
         <>
             <div className='bg-[#e1e1e1] px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-                <img src={path} alt="" className='rounded-2xl md:h-[17rem]' />
+                <img src={path} alt="" className='rounded-2xl h-40 md:h-[17rem]' />
                 <div className=' w-full'>
                     <p className='font-bold text-[#6806ed]'>{title}</p>
                     <p className='text-sm '>{description}</p>
