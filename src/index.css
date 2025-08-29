@@ -1,20 +1,21 @@
 @import "tailwindcss";
+@import "animate.css";
 
 body {
-    font-family: "Google Sans Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 300; /* Adjusted font weight  300 to 800*/
-    font-style: normal;
-    height: 100vh;
-    color : rgb(11, 11, 11);
-    /* background-color : rgb(64, 65, 65); */
-    background-color: rgb(255, 255, 255);
-    /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500; /* Adjusted font weight  300 to 800*/
+  font-style: normal;
+  height: 100vh;
+  color: rgb(11, 11, 11);
+  /* background-color : rgb(64, 65, 65); */
+
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
      no-repeat fixed center / cover; */
-    /* background image now can 
+  /* background image now can 
     be change to any other type if needed */
-    /* background: no-repeat fixed center / cover; */
-    overflow-y: scroll; /* Enable vertical scrolling */
+  /* background: no-repeat fixed center / cover; */
+  overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 /* For Chrome, Edge, Safari */
@@ -36,7 +37,18 @@ body {
 }
 
 :root {
-    --cardbackground-color : #98197c;
-    --smallText-color : black;
-    --footerBackground-color : 
+  --cardbackground-color: #98197c;
+  --smallText-color: black;
+  --footerBackground-color: ;
+}
+
+/* custom animation delay :  */
+.delay-500 {
+    animation-delay : 0.5s;
+}
+.delay-1000 {
+    animation-delay : 0.6s;
+}
+.delay-1500 {
+    animation-delay : 0.7s;
 }
