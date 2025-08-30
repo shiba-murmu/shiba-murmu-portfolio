@@ -1,7 +1,7 @@
 import React from 'react'
 import Urls from '../component/urls'
 import Project_card from '../component/Project_card'
-
+import Animate_box from '../component/animate/Animate_box'
 function Projects() {
     return (
         <>
@@ -62,7 +62,7 @@ function Projects() {
 
                    
                     <div className=' px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-                        <img src="/projects.gif" alt="" className='rounded-2xl' />
+                        <img src="/projects.gif" alt="" className='rounded-2xl ' />
                     </div>
 
                 </div>

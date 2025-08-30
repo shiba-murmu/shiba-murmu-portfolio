@@ -8,7 +8,7 @@ body {
   font-style: normal;
   height: 100vh;
   color: rgb(0, 0, 0);
-  background-color : #ffffff;
+  background-color : #00025225;
   /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
      no-repeat fixed center / cover; */
   /* background image now can 
@@ -36,7 +36,7 @@ body {
 }
 
 :root {
-  --bg-color: #155E8D;
+  --bg-color: #175c8b;
   --smallText-color: #2e3033;
   --text-level-three-color : #155E8D;
   /* --footerBackground-color: ; */
