@@ -33,8 +33,8 @@ function Contact() {
         <>
             <div>
                 <div className='flex justify-end items-center p-3'>
-                    <Link to={'/'} className='hover:cursor-pointer hover:text-[#6806ed]'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" color='#6806ed' strokeWidth="1.5" stroke="currentColor" className="size-8">
+                    <Link to={'/'} className='hover:cursor-pointer hover:text-[var(--bg-color)]'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" color='var(--bg-color)' strokeWidth="1.5" stroke="currentColor" className="size-8">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
                     </Link>
@@ -48,7 +48,7 @@ function Contact() {
                             <input type="email" name='email' className='border p-2 rounded w-full' required placeholder="Your Email" />
                             <label htmlFor="message" className='font-bold'>Message</label>
                             <textarea name='message' className='border input-style  p-2 rounded w-full h-40' required placeholder="Your Message"></textarea>
-                            <button type="submit" disabled={buttonDisable} className='bg-[#6806ed] mt-5 focus:cursor-pointer hover:cursor-pointer text-white py-2 px-4 rounded'>{
+                            <button type="submit" disabled={buttonDisable} className='bg-[var(--bg-color)] mt-5 focus:cursor-pointer hover:cursor-pointer text-white py-2 px-4 rounded-0'>{
                                 buttonDisable ? "Sending..." : "Send message"
                             }</button>
                         </form>

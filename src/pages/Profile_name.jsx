@@ -16,12 +16,12 @@ function Profile_name() {
                 </div>
                 <div className='flex flex-col items-center justify-center gap-2 text-center'>
                     <h1 className='animate__animated animate__zoomInUp text-4xl font-bold md:text-6xl '>Shiba Murmu</h1>
-                    <h2 className='text-md md:text-lg text-[#6806ed]'>Web developer</h2>
+                    <h2 className='text-md md:text-lg text-[var(--smallText-color)]'>Web developer</h2>
                     <p className='md:text-lg'>Turning ideas into clean, user-friendly, <br /> and impactful code.</p>
                 </div>
                 <div className='flex gap-5'>
                     <Click_animation>
-                        <a href="/resume.pdf" download={'Shiba_Murmu_Resume.pdf'} className='border-b-2 bg-[#6806ed] text-white py-3 px-4 rounded-0'>Download resume</a>
+                        <a href="/resume.pdf" download={'Shiba_Murmu_Resume.pdf'} className=' bg-[var(--bg-color)] text-white py-3 px-4 rounded-0'>Download resume</a>
                     </Click_animation>
                 </div>
             </div>
