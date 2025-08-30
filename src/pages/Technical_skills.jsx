@@ -31,6 +31,7 @@ function Technical_skills() {
   return (
     <div className="md:h-[70vh] p-5">
       {/* Section Heading */}
+      {/* Skills Section */}
       <div className="mt-20 mb-5 md:my-15 flex justify-center">
         <HeadingText Children={"Technical Skills"} />
       </div>

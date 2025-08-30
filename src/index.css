@@ -37,7 +37,8 @@ body {
 
 :root {
   --bg-color: #155E8D;
-  --smallText-color: #0F3F74;
+  --smallText-color: #2e3033;
+  --text-level-three-color : #155E8D;
   /* --footerBackground-color: ; */
 }
 

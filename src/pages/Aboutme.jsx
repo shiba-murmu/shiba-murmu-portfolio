@@ -1,14 +1,16 @@
 import React from 'react'
 import HeadingText from '../component/HeadingText'
 import useInView from './../hooks/useInView'
+import Animate_box from '../component/animate/Animate_box'
 function Aboutme() {
     const [ref, isInView] = useInView({threshold : 0.2})
   return (
     <>
         <div className='block md:flex justify-center items-center'>
             <div className='hidden md:flex justify-center items-center md:w-1/2 p-5 '>
-                <img src="/reading.gif" alt="user image"
-                className='rounded-2xl h-[30rem]'/>
+                <Animate_box />
+                {/* <img src="/reading.gif" alt="user image"
+                className='rounded-2xl h-[30rem]'/> */}
             </div>
             <div className='flex flex-col justify-center items-center md:items-start md:w-1/2 p-5'>
                 {/* for heading */}
