@@ -1,13 +1,14 @@
 import React from 'react'
 import Urls from '../component/urls'
 import Project_card from '../component/Project_card'
-import Animate_box from '../component/animate/Animate_box'
+import HeadingText from '../component/HeadingText'
+
 function Projects() {
     return (
         <>
             <div className='p-5'>
-                <div className='flex my-10 item-center justify-Start'>
-                    <span className='text-2xl md:text-4xl text-white font-bold border-l-1 px-4 py-2 rounded-r-md bg-[#6806ed]'>My work</span>
+                <div className='flex my-10 item-center justify-center'>
+                    <HeadingText Children={'My works'} />
                 </div>
                 <div className='grid mt-5  grid-cols-1 md:grid-cols-3 gap-x-5 gap-y-10'>
                     < Project_card
@@ -59,8 +60,17 @@ function Projects() {
                         liveDemo={Urls.CALCULATOR.liveDemo}
                         livebuttonValue="Live Demo"
                     />
+                    {/* Below project need to change the image when it is designed. */}
+                    <Project_card
+                        path={Urls.PUSH_NOTIFICATIONS.image}
+                        title={Urls.PUSH_NOTIFICATIONS.title}
+                        description={Urls.PUSH_NOTIFICATIONS.description}
+                        tech={Urls.PUSH_NOTIFICATIONS.tech}
+                        github={Urls.PUSH_NOTIFICATIONS.github}
+                        liveDemo={Urls.PUSH_NOTIFICATIONS.liveDemo}
+                        livebuttonValue="Live Demo"
+                    />
 
-                   
                     <div className=' px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
                         <img src="/projects.gif" alt="" className='rounded-2xl ' />
                     </div>

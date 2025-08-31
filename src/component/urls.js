@@ -63,6 +63,14 @@ const Urls = {
     github: "https://github.com/shiba-murmu/chatconnect-php-project",
     // liveDemo: "" # not live
   },
+  PUSH_NOTIFICATIONS: {
+    title: "Push Notifications",
+    description: "A web app for managing push notifications.",
+    tech : ["React", "Tailwind CSS", "Firebase"],
+    image: "/push_notification.png",
+    github: "https://github.com/shiba-murmu/push-notification-app",
+    liveDemo: "https://push-notification-app-mu.vercel.app/"
+  },
   // simple calculator webapp
   CALCULATOR : {
     title: "Simple Calculator",
