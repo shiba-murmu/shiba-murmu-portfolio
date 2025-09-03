@@ -35,7 +35,7 @@ function Education() {
 
 
                 <div className='flex justify-center items-center flex-col gap-10 md:gap-20'>
-                    <div className='md:w-full md:h-[50vh]  flex animate__animated animate__bounceInRight'>
+                    <div className='md:w-full md:h-[50vh]  flex '>
                         <div className='md:w-1/2'>
 
                         </div>
