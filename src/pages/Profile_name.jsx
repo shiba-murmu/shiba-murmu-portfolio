@@ -6,11 +6,11 @@ function Profile_name() {
     // profile name and description content.
     return (
         <>
-            <div className='flex flex-col justify-start items-center gap-5 h-[90vh] md:h-[100vh]'>
+            <div className='flex mb-15 md:mb-20  flex-col justify-start items-center gap-5 h-[90vh] md:h-[100vh]'>
                 <div className='mt-20 md:mt-30'>
                     <PopUp_open>
                         <img src={Urls.PROFILE_PIC} alt="user image"
-                            className='h-[20rem] w-[15rem] md:h-[15rem] md:w-[15rem]  object-cover rounded-0 md:rounded-full '
+                            className='h-[20rem] w-[15rem] md:h-[23rem] md:w-[23rem]  object-cover rounded-0 md:rounded-full '
                         />
                     </PopUp_open>
                 </div>
