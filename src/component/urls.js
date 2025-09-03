@@ -12,7 +12,7 @@ const Urls = {
 
   // Frameworks & Library
   REACT: "/React.png",
-  DJANGO: "/django.png",
+  DJANGO: "/Django.png",
   TAILWIND_CSS: "/tailwind.png",
   BOOTSTRAP: "/Bootstrap.png",
 

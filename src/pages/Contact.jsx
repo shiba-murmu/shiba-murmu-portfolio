@@ -43,11 +43,11 @@ function Contact() {
                     <div className='w-[80%] md:w-[50%] '>
                         <form action="" ref={form} onSubmit={sendEmail} className='flex flex-col gap-2 md:p-10'>
                             <label htmlFor="name" className='font-bold'>Your name</label>
-                            <input type="text" name='name' className='border p-2 rounded w-full' required placeholder="Your Name" />
+                            <input type="text" name='name' className='border border-[#8f8d8d] p-2 rounded w-full focus:outline-none focus:ring-2 focus:ring-[#8f8d8d]' required placeholder="Your Name" />
                             <label htmlFor="email" className='font-bold'>Email address</label>
-                            <input type="email" name='email' className='border p-2 rounded w-full' required placeholder="Your Email" />
+                            <input type="email" name='email' className='border border-[#8f8d8d] focus:outline-none focus:ring-2 focus:ring-[#8f8d8d] p-2 rounded w-full' required placeholder="Your Email" />
                             <label htmlFor="message" className='font-bold'>Message</label>
-                            <textarea name='message' className='border input-style  p-2 rounded w-full h-40' required placeholder="Your Message"></textarea>
+                            <textarea name='message' className='border border-[#8f8d8d] p-2 rounded w-full h-40 focus:outline-none focus:ring-2 focus:ring-[#8f8d8d]' required placeholder="Your Message"></textarea>
                             <button type="submit" disabled={buttonDisable} className='bg-[var(--bg-color)] mt-5 focus:cursor-pointer hover:cursor-pointer text-white py-2 px-4 rounded-0'>{
                                 buttonDisable ? "Sending..." : "Send message"
                             }</button>
