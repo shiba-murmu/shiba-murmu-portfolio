@@ -2,8 +2,9 @@ import React from 'react'
 import Urls from '../component/urls'
 import Project_card from '../component/Project_card'
 import HeadingText from '../component/HeadingText'
-
+import useInView from '../hooks/useInView'
 function Projects() {
+    const [ref, isInView] = useInView({ threshold: 0.2 })
     return (
         <>
             <div className='p-5'>
@@ -70,11 +71,17 @@ function Projects() {
                         liveDemo={Urls.PUSH_NOTIFICATIONS.liveDemo}
                         livebuttonValue="Live Demo"
                     />
-
-                    <div className=' px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-                        <img src="/projects.gif" alt="" className='rounded-2xl ' />
+                    <div ref={ref}>
+                        {
+                            isInView ? (
+                                <div className='md:hidden px-5 py-5  flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
+                                    {isInView && (
+                                        <img src="/projects.gif" alt="" className='' />
+                                    )}
+                                </div>
+                            ) : null
+                        }
                     </div>
-
                 </div>
             </div>
         </>

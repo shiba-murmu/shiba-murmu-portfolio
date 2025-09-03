@@ -10,8 +10,8 @@ function Project_card({ path, title, description, tech, github, liveDemo, livebu
                     isInView ? (
 
                         <PopUp_open ref={ref}>
-                            <div className=' px-5 py-5 rounded-2xl flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-                                <img src={path} alt="" className='rounded-2xl h-40 md:h-[17rem]' />
+                            <div className=' px-5 py-5 flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
+                                <img src={path} alt="" className=' h-40 md:h-[17rem]' />
                                 <div className=' w-full'>
                                     <span className='font-bold text-xl md:text-2xl text-[var(--text-level-three-color)]'>{title}</span>
                                     <p className='text-sm '>{description}</p>

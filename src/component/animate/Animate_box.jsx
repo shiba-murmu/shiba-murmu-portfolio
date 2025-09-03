@@ -58,27 +58,27 @@ function StyleSheet() {
 
         .front {
             transform: rotateY(0deg) translateZ(100px);
-            background-color: #28B8D5;
+            background-color: #666666;
         }
         .right {
             transform: rotateY(90deg) translateZ(100px);
-            background-color: #229ABD;
+            background-color: #707070;
         }
         .back {
             transform: rotateY(180deg) translateZ(100px);
-            background-color: #1B7CA5;
+            background-color: #7A7A7A;
         }
         .left {
             transform: rotateY(-90deg) translateZ(100px);
-            background-color: #155E8D;
+            background-color: #858585;
         }
         .top {
             transform: rotateX(90deg) translateZ(100px);
-            background-color: #0F3F74;
+            background-color: #8F8F8F;
         }
         .bottom {
             transform: rotateX(-90deg) translateZ(100px);
-            background-color: #08215C;
+            background-color: #999999;
         }
 
     `}</style>
