@@ -7,14 +7,9 @@ body {
   font-weight: 500; /* Adjusted font weight  300 to 800*/
   font-style: normal;
   height: 100vh;
-  color: rgb(0, 0, 0);
-  background-color : #00025225;
-  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-     no-repeat fixed center / cover; */
-  /* background image now can 
-    be change to any other type if needed */
-  /* background: no-repeat fixed center / cover; */
+  background-color : rgb(255, 255, 255);
   overflow-y: scroll; /* Enable vertical scrolling */
+  /* background-image: url('/background3.jpg'); */
 }
 
 /* For Chrome, Edge, Safari */

@@ -58,11 +58,11 @@ function StyleSheet() {
 
         .front {
             transform: rotateY(0deg) translateZ(100px);
-            background-color: #666666;
+            background-color: #CCCCCC;
         }
         .right {
             transform: rotateY(90deg) translateZ(100px);
-            background-color: #707070;
+            background-color: #ffffff;
         }
         .back {
             transform: rotateY(180deg) translateZ(100px);
