@@ -41,7 +41,6 @@ function Education() {
                         </div>
                         <div className='md:w-1/2'>
                             <CardForEducation
-                            className={' flex animate__animated animate__bounceInRight'}
                                 Course={'Bachelor Of Technology'}
                                 University={'Jharkhand University of Technology'}
                                 Year={'2021 - 2025'}
