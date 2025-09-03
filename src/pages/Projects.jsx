@@ -77,9 +77,7 @@ function Projects() {
                             isInView ? (
                                 <PopUp_open>
                                     <div className='px-5 py-5  flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-
                                         <img src="/projects.gif" alt="" className='' />
-
                                     </div>
                                 </PopUp_open>
                             ) : null

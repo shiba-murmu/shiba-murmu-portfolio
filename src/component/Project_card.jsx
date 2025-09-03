@@ -8,7 +8,6 @@ function Project_card({ path, title, description, tech, github, liveDemo, livebu
             <div ref={ref}>
                 {
                     isInView ? (
-
                         <PopUp_open>
                             <div className=' px-5 py-5 flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
                                 <img src={path} alt="" className=' h-40 md:h-[17rem]' />
@@ -26,9 +25,6 @@ function Project_card({ path, title, description, tech, github, liveDemo, livebu
                     ) : ("")
                 }
             </div>
-
-
-
         </>
     )
 }
