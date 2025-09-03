@@ -3,6 +3,7 @@ import Urls from '../component/urls'
 import Project_card from '../component/Project_card'
 import HeadingText from '../component/HeadingText'
 import useInView from '../hooks/useInView'
+import PopUp_open from '../component/animate/PopUp_open'
 function Projects() {
     const [ref, isInView] = useInView({ threshold: 0.2 })
     return (
@@ -74,11 +75,13 @@ function Projects() {
                     <div ref={ref}>
                         {
                             isInView ? (
-                                <div className='md:hidden px-5 py-5  flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
-                                    {isInView && (
+                                <PopUp_open>
+                                    <div className='px-5 py-5  flex flex-col items-center justify-center gap-5 hover:translate-y-[-0.5rem]  transition-all duration-300'>
+
                                         <img src="/projects.gif" alt="" className='' />
-                                    )}
-                                </div>
+
+                                    </div>
+                                </PopUp_open>
                             ) : null
                         }
                     </div>
