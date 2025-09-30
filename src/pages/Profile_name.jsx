@@ -10,7 +10,8 @@ function Profile_name() {
                 <div className='mt-20 md:mt-30'>
                     <PopUp_open>
                         <img src={Urls.PROFILE_PIC} alt="user image"
-                            className='h-[13rem] w-[13rem] md:h-[23rem] md:w-[23rem]  object-cover rounded-0 rounded-full md:rounded-full '
+                            className='h-[13rem] w-[13rem] md:h-[23rem] md:w-[23rem]
+                            object-cover rounded-0 rounded-full md:rounded-full '
                         />
                     </PopUp_open>
                 </div>

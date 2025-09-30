@@ -3,7 +3,7 @@
 // this portfolio.
 const Urls = {
     // profile picture urls
-    PROFILE_PIC: "/profile_picture.png",
+    PROFILE_PIC: "/profile_den.jpg",
   // Language
   PYTHON: "/python.png",
   JAVASCRIPT: "/js.png",
