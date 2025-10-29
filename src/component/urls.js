@@ -1,5 +1,8 @@
 
 // From here i can change the whole data for 
+
+
+
 // this portfolio.
 const Urls = {
     // profile picture urls
@@ -79,6 +82,14 @@ const Urls = {
     image: "/calculator.png",
     github: "https://github.com/shiba-murmu/calculator",
     liveDemo: "https://shiba-murmu.github.io/calculator/"
+  },
+  FOODIEMEDIA : {
+    title: "FoodieMedia",
+    description: "A social media platform for food lovers.",
+    tech : ["React", "Tailwind CSS", "Firebase"],
+    image: "/foodiemedia.png",
+    github: "https://github.com/shiba-murmu/Discover-your-recipe",
+    liveDemo: "https://foodiemedia.vercel.app/"
   }
 
 };
