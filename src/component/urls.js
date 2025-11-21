@@ -1,6 +1,8 @@
 
 // From here i can change the whole data for 
 
+import { text } from "motion/react-client";
+
 
 
 // this portfolio.
@@ -90,6 +92,14 @@ const Urls = {
     image: "/foodiemedia.png",
     github: "https://github.com/shiba-murmu/Discover-your-recipe",
     liveDemo: "https://foodiemedia.vercel.app/"
+  },
+  PUBLICPORTFOLIO : {
+    title : "Public Portfolio",
+    description : 'Portfolio creating website.',
+    tech : ["React", "Tailwind CSS"],
+    image : "/publicportfolio.png",
+    github : "https://github.com/shiba-murmu/project-public-portfolio-website.git",
+    liveDemo: 'https://public-portfolio-ten.vercel.app/'
   }
 
 };

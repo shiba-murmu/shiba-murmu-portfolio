@@ -81,6 +81,15 @@ function Projects() {
                         liveDemo={Urls.FOODIEMEDIA.liveDemo}
                         livebuttonValue="Development live"
                     />
+                    <Project_card
+                        path={Urls.PUBLICPORTFOLIO.image}
+                        title={Urls.PUBLICPORTFOLIO.title}
+                        description={Urls.PUBLICPORTFOLIO.description}
+                        tech={Urls.PUBLICPORTFOLIO.tech}
+                        github={Urls.PUBLICPORTFOLIO.github}
+                        liveDemo={Urls.PUBLICPORTFOLIO.liveDemo}
+                        livebuttonValue="Development live"
+                    />
                     <div ref={ref}>
                         {
                             isInView ? (
