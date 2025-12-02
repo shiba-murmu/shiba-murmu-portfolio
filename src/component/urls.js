@@ -99,7 +99,7 @@ const Urls = {
     tech : ["React", "Tailwind CSS"],
     image : "/publicportfolio.png",
     github : "https://github.com/shiba-murmu/project-public-portfolio-website.git",
-    liveDemo: 'https://public-portfolio-ten.vercel.app/'
+    liveDemo: 'https://public-portfolio-steel.vercel.app/'
   }
 
 };
