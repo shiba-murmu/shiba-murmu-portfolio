@@ -8,11 +8,35 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import EducationAndExperience from './components/Education';
-function App() {
-    useLenis();
+import Lenis from 'lenis';
+import { useEffect } from 'react';
+
+export default function App() {
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+        });
+
+        // Make lenis globally accessible to the Navbar scroll handler
+        window.lenis = lenis;
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        return () => {
+            lenis.destroy();
+        };
+    }, []);
 
     return (
         <>
+            {/* Your Page Sections */}
             <Navbar />
             <Hero />
             <About />
@@ -22,8 +46,5 @@ function App() {
             <Contact />
             <Footer />
         </>
-
-    )
+    );
 }
-
-export default App

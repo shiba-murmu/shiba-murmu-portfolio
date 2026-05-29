@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, Cpu } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 
 const navLinks = [
     { name: 'Showcase', href: '#projects' },
     { name: 'Architecture', href: '#skills' },
-    { name: 'Timeline', href: '#timeline' }, // Updated to match your exact section ID
+    { name: 'Timeline', href: '#timeline' },
     { name: 'Contact', href: '#contact' },
 ];
 
@@ -13,14 +13,54 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
+    // Create a DOM anchor reference to detect clicks outside the entire component
+    const navRef = useRef(null);
+
+    // Monitor document clicks to auto-close the mobile drawer
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            // If the mobile drawer is open AND the user clicks outside the navRef boundaries
+            if (isOpen && navRef.current && !navRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        // Attach global click event handler
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Unbind the event when component destroys to prevent performance leaks
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
+
+    const handleScroll = (e, href) => {
+        e.preventDefault();
+        setIsOpen(false);
+
+        const targetElement = document.querySelector(href);
+        if (targetElement) {
+            if (window.lenis) {
+                window.lenis.scrollTo(targetElement, {
+                    offset: 0,
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                });
+            } else {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    };
+
     return (
-        <header className="fixed top-0 left-0 w-full z-50 border-b border-slate-900/40 bg-gray-950/20 backdrop-blur-md">
+        // 1. Attached the navRef here to wrap both desktop navigation bar and the mobile drawer together
+        <header ref={navRef} className="fixed top-0 left-0 w-full z-50 border-b border-slate-900/40 bg-gray-950/20 backdrop-blur-md">
             <div className="max-w-7xl mx-auto w-full px-6 h-16 flex items-center justify-between">
 
                 {/* Brand / Logo */}
-                <a href="#" className="flex items-center gap-2 font-semibold text-xs tracking-widest text-white uppercase group font-mono">
+                <a href="#" onClick={(e) => handleScroll(e, '#root')} className="flex items-center gap-2 font-semibold text-xs tracking-widest text-white uppercase group font-mono">
                     <Terminal className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors duration-300" />
-                    <span>Engine<span className="text-cyan-400">.</span>OS</span>
+                    <span>Murmu<span className="text-cyan-400">.</span>IO</span>
                 </a>
 
                 {/* Desktop Nav Items */}
@@ -29,6 +69,7 @@ export default function Navbar() {
                         <a
                             key={link.name}
                             href={link.href}
+                            onClick={(e) => handleScroll(e, link.href)}
                             onMouseEnter={() => setHoveredIndex(idx)}
                             onMouseLeave={() => setHoveredIndex(null)}
                             className="relative px-4 py-1.5 text-[11px] font-mono tracking-wide text-slate-400 hover:text-white transition-colors duration-300"
@@ -52,13 +93,14 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center">
                     <a
                         href="#contact"
+                        onClick={(e) => handleScroll(e, '#contact')}
                         className="group inline-flex items-center justify-center h-9 px-4 text-[11px] font-mono font-medium text-gray-950 bg-white hover:bg-cyan-400 rounded-lg shadow-sm transition-colors duration-300 select-none"
                     >
                         Initiate Project
                     </a>
                 </div>
 
-                {/* Mobile Toggle */}
+                {/* Mobile Toggle Button */}
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     className="md:hidden p-2 text-slate-400 hover:text-white focus:outline-none transition-colors"
@@ -68,7 +110,7 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile Menu Drawer */}
+            {/* Mobile Menu Drawer Layout */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -83,7 +125,7 @@ export default function Navbar() {
                                 <a
                                     key={link.name}
                                     href={link.href}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={(e) => handleScroll(e, link.href)}
                                     className="px-3 py-2 text-xs font-mono tracking-wide text-slate-400 hover:text-white hover:bg-slate-900/40 rounded-lg transition-all"
                                 >
                                     {link.name}
@@ -95,7 +137,7 @@ export default function Navbar() {
 
                         <a
                             href="#contact"
-                            onClick={() => setIsOpen(false)}
+                            onClick={(e) => handleScroll(e, '#contact')}
                             className="w-full text-center py-2.5 text-xs font-mono font-medium text-gray-950 bg-white rounded-lg hover:bg-cyan-400 transition-colors"
                         >
                             Initiate Project
