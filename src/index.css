@@ -1,1 +1,235 @@
-@import 'tailwind.css';
+@import 'tailwindcss';
+
+/* =========================================
+   ROOT VARIABLES
+========================================= */
+
+:root {
+
+  /* =========================
+     MAIN COLORS
+  ========================= */
+
+  --primary-color: #06b6d4;
+  --primary-hover: #22d3ee;
+
+  --secondary-color: #8b5cf6;
+
+  --accent-color: #0ea5e9;
+
+  /* =========================
+     BACKGROUND COLORS
+  ========================= */
+
+  --background-main: #020617;
+
+  --background-secondary: #0f172a;
+
+  --background-card: rgba(255, 255, 255, 0.05);
+
+  --background-card-hover: rgba(255, 255, 255, 0.08);
+
+  /* =========================
+     TEXT COLORS
+  ========================= */
+
+  --text-primary: #ffffff;
+
+  --text-secondary: #cbd5e1;
+
+  --text-muted: #94a3b8;
+
+  --text-dark: #0f172a;
+
+  /* =========================
+     BORDER COLORS
+  ========================= */
+
+  --border-color: rgba(255, 255, 255, 0.08);
+
+  --border-hover: rgba(34, 211, 238, 0.4);
+
+  /* =========================
+     GLOW COLORS
+  ========================= */
+
+  --glow-primary: rgba(34, 211, 238, 0.25);
+
+  --glow-secondary: rgba(139, 92, 246, 0.25);
+
+  /* =========================
+     SHADOWS
+  ========================= */
+
+  --shadow-primary:
+    0 10px 40px rgba(34, 211, 238, 0.15);
+
+  --shadow-card:
+    0 10px 30px rgba(0, 0, 0, 0.2);
+
+  /* =========================
+     RADIUS
+  ========================= */
+
+  --radius-sm: 12px;
+
+  --radius-md: 20px;
+
+  --radius-lg: 32px;
+
+  /* =========================
+     TRANSITIONS
+  ========================= */
+
+  --transition-fast: 0.3s ease;
+
+  --transition-medium: 0.5s ease;
+
+}
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   HTML / BODY
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+
+  font-family: 'Inter', sans-serif;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #0f172a 0%,
+      #020617 70%
+    );
+
+  color: var(--text-primary);
+
+  overflow-x: hidden;
+
+  min-height: 100vh;
+
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-main);
+}
+
+::-webkit-scrollbar-thumb {
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--primary-hover),
+      var(--primary-color)
+    );
+
+}
+
+/* =========================================
+   REUSABLE UTILITIES
+========================================= */
+
+.glass-effect {
+
+  background: var(--background-card);
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid var(--border-color);
+
+  box-shadow: var(--shadow-card);
+
+}
+
+.gradient-text {
+
+  background:
+    linear-gradient(
+      to right,
+      #67e8f9,
+      #a78bfa
+    );
+
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+}
+
+.primary-button {
+
+  background: var(--primary-color);
+
+  color: var(--text-dark);
+
+  transition: var(--transition-fast);
+
+}
+
+.primary-button:hover {
+
+  background: var(--primary-hover);
+
+  transform: translateY(-2px);
+
+}
+
+.section-padding {
+
+  padding: 7rem 1.5rem;
+
+}
+
+.container-width {
+
+  max-width: 1280px;
+
+  margin-inline: auto;
+
+}
+
+/* =========================================
+   SELECTION COLOR
+========================================= */
+
+::selection {
+
+  background: var(--primary-color);
+
+  color: white;
+
+}
