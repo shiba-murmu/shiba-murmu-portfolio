@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Layout, Cpu, Database, GitBranch, Terminal, Shield, Orbit, Activity } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { Layout, Cpu, Database, GitBranch, Terminal, Orbit, Activity } from 'lucide-react';
 
 const skillGroups = [
     {
@@ -37,13 +37,61 @@ const skillGroups = [
     }
 ];
 
-export default function Skills() {
-    return (
-        <section id="skills" className="relative py-24 px-6 overflow-hidden">
-            <div className="max-w-7xl mx-auto w-full relative z-10">
+// Entry Variant Blueprints
+const headerVariants = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+};
 
-                {/* Section Header */}
-                <div className="space-y-3 mb-16 text-center md:text-left">
+const cardVariants = {
+    initial: { opacity: 0, y: 40, scale: 0.98 },
+    whileInView: (idx) => ({
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: {
+            duration: 0.8,
+            ease: [0.16, 1, 0.3, 1],
+            delay: idx * 0.1
+        }
+    })
+};
+
+export default function Skills() {
+    // 1. Target reference to capture localized viewport cross-sections
+    const sectionRef = useRef(null);
+
+    // 2. Track scroll position specifically from when the section sits locked at top until it exits
+    const { scrollYProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end start"]
+    });
+
+    // 3. Map exit interpolations: scales down, drifts down, and drops to 0 opacity
+    const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+    const scale = useTransform(scrollYProgress, [0, 0.7], [1, 0.94]);
+    const containerY = useTransform(scrollYProgress, [0, 0.7], [0, 80]);
+
+    return (
+        <section ref={sectionRef} id="skills" className="relative py-24 px-6 overflow-hidden">
+
+            {/* 4. Hardware-Accelerated Wrapper mapping real-time scroll properties */}
+            <motion.div
+                className="max-w-7xl mx-auto w-full relative z-10"
+                style={{ opacity, scale, y: containerY }}
+            >
+                {/* Animated Section Header */}
+                <motion.div
+                    className="space-y-3 mb-16 text-center md:text-left"
+                    variants={headerVariants}
+                    initial="initial"
+                    whileInView="whileInView"
+                    viewport={{ once: true, margin: "-100px" }}
+                >
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/40 border border-slate-900/80 backdrop-blur-md rounded-full">
                         <Terminal className="w-3.5 h-3.5 text-cyan-400" />
                         <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">Engine Capabilities</span>
@@ -51,19 +99,21 @@ export default function Skills() {
                     <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
                         Technical Architecture Stack
                     </h2>
-                </div>
+                </motion.div>
 
-                {/* Premium Interactive Grid */}
+                {/* Premium Interactive Grid Container */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {skillGroups.map((group) => <SkillCard key={group.category} group={group} />)}
+                    {skillGroups.map((group, idx) => (
+                        <SkillCard key={group.category} group={group} idx={idx} />
+                    ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
 
-/* Isolated Card Component to manage dynamic mouse position mechanics safely */
-function SkillCard({ group }) {
+/* Isolated Card Component managing entry transforms and cursor spotlight physics */
+function SkillCard({ group, idx }) {
     const [coords, setCoords] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
@@ -76,13 +126,20 @@ function SkillCard({ group }) {
     };
 
     return (
-        <div
+        <motion.div
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="relative flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-b from-slate-950/40 to-slate-950/10 backdrop-blur-md border border-slate-900/60 overflow-hidden group transition-all duration-300"
+            variants={cardVariants}
+            custom={idx}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true, margin: "-60px" }}
+            whileHover={{ y: -6, borderColor: "rgba(255, 255, 255, 0.15)" }}
+            transition={{ type: "tween", ease: "easeOut", duration: 0.25 }}
+            className="relative flex flex-col justify-between p-6 rounded-2xl bg-gradient-to-b from-slate-950/40 to-slate-950/10 backdrop-blur-md border border-slate-900/60 overflow-hidden group shadow-sm will-change-transform"
         >
-            {/* Interactive Cursor Spotlight Glow Effect */}
+            {/* Interactive Cursor Spotlight Glow Layer */}
             <div
                 className="absolute pointer-events-none transition-opacity duration-500 rounded-full"
                 style={{
@@ -134,6 +191,6 @@ function SkillCard({ group }) {
             <div className="absolute bottom-1 right-2 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none">
                 <Orbit className="w-16 h-16 text-slate-400 animate-[spin_20s_linear_infinite]" />
             </div>
-        </div>
+        </motion.div>
     );
 }

@@ -1,13 +1,45 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Terminal, Send, Mail, MapPin, ArrowRight, ArrowUpRight, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Terminal, Send, Mail, MapPin, ShieldCheck, Loader2 } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 
-const fadeUpVariant = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-100px" },
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+// 1. Central Layout Orchestrator Variant
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.08,
+            delayChildren: 0.05,
+        }
+    }
+};
+
+// 2. Standard Cascading Fade-Up Variant
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    }
+};
+
+// 3. Interactive Parameters/Communication Node Variants
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+    },
+    hover: {
+        y: -4,
+        borderColor: 'rgba(6, 182, 212, 0.3)',
+        backgroundColor: 'rgba(15, 23, 42, 0.4)',
+        boxShadow: '0 12px 30px -10px rgba(6, 182, 212, 0.12)',
+        transition: { duration: 0.25, ease: 'easeOut' }
+    }
 };
 
 export default function Contact() {
@@ -17,6 +49,7 @@ export default function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        
         // Mimic secure production infrastructure validation delay
         setTimeout(() => {
             setIsSubmitting(false);
@@ -26,11 +59,21 @@ export default function Contact() {
     };
 
     return (
-        <section id="contact" className="relative py-24 px-6 overflow-hidden">
+        <motion.section 
+            id="contact" 
+            className="relative py-24 px-6 overflow-hidden"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-120px" }}
+        >
+            {/* Ambient Background Grid Nodes */}
+            <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]" />
+            
             <div className="max-w-7xl mx-auto w-full relative z-10">
 
-                {/* Section Header */}
-                <motion.div className="space-y-3 mb-16 text-center md:text-left" {...fadeUpVariant}>
+                {/* Section Header Grid Anchor */}
+                <motion.div className="space-y-3 mb-16 text-center md:text-left" variants={itemVariants}>
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/30 border border-slate-900 backdrop-blur-sm rounded-full">
                         <Terminal className="w-3.5 h-3.5 text-cyan-400" />
                         <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">Secure Link</span>
@@ -44,17 +87,22 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
                     {/* Left Context Pane: Parameter Records */}
-                    <motion.div className="lg:col-span-5 space-y-8" {...fadeUpVariant}>
-                        <div className="space-y-3">
+                    <div className="grid grid-cols-1 lg:col-span-5 gap-8">
+                        
+                        <motion.div className="space-y-3" variants={itemVariants}>
                             <h3 className="text-xl font-bold tracking-tight text-slate-200">System Parameters</h3>
                             <p className="text-sm text-slate-400 leading-relaxed font-light">
                                 Seeking full-time engineering deployments, system optimizations, or end-to-end infrastructure architecture builds.
                             </p>
-                        </div>
+                        </motion.div>
 
-                        {/* Structured Communication Nodes */}
+                        {/* Structured Interactive Communication Nodes */}
                         <div className="space-y-4 font-mono text-xs">
-                            <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm">
+                            <motion.div 
+                                className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm cursor-pointer"
+                                variants={cardVariants}
+                                whileHover="hover"
+                            >
                                 <div className="w-8 h-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-cyan-400">
                                     <Mail className="w-3.5 h-3.5" />
                                 </div>
@@ -64,9 +112,13 @@ export default function Contact() {
                                         shibamurmu.dev@gmail.com
                                     </a>
                                 </div>
-                            </div>
+                            </motion.div>
 
-                            <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm">
+                            <motion.div 
+                                className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm"
+                                variants={cardVariants}
+                                whileHover="hover"
+                            >
                                 <div className="w-8 h-8 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-purple-400">
                                     <MapPin className="w-3.5 h-3.5" />
                                 </div>
@@ -74,35 +126,39 @@ export default function Contact() {
                                     <p className="text-[10px] text-slate-500 uppercase tracking-wider">Operational Node</p>
                                     <p className="text-slate-300 font-light">Jamshedpur, Jharkhand, India</p>
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
 
                         {/* Social Network Routing Array */}
-                        <div className="space-y-3 pt-4">
+                        <motion.div className="space-y-3 pt-2" variants={itemVariants}>
                             <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase">External Core Directories</p>
                             <div className="flex items-center gap-3">
-                                <a
+                                <motion.a
                                     href="https://github.com"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-all duration-200"
+                                    className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors duration-200"
+                                    whileHover={{ y: -3, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
                                     <FaGithub className="w-4 h-4" />
-                                </a>
-                                <a
+                                </motion.a>
+                                <motion.a
                                     href="https://linkedin.com"
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-all duration-200"
+                                    className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors duration-200"
+                                    whileHover={{ y: -3, scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
                                 >
                                     <FaLinkedinIn className="w-4 h-4" />
-                                </a>
+                                </motion.a>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </div>
 
                     {/* Right Context Pane: Secure Gateway Transmission Engine */}
-                    <motion.div className="lg:col-span-7" {...fadeUpVariant}>
+                    <motion.div className="lg:col-span-7" variants={itemVariants}>
                         <form
                             onSubmit={handleSubmit}
                             className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-slate-950/40 to-slate-950/10 backdrop-blur-md border border-slate-900/60 space-y-6 relative overflow-hidden"
@@ -155,14 +211,41 @@ export default function Contact() {
                                     <span>Encrypted communication framework.</span>
                                 </div>
 
-                                <button
+                                <motion.button
                                     type="submit"
                                     disabled={isSubmitting}
                                     className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 px-5 bg-white text-gray-950 text-xs font-semibold rounded-lg hover:bg-cyan-400 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm select-none"
+                                    whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                                    whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                                 >
-                                    {isSubmitting ? 'Transmitting...' : 'Dispatch Message'}
-                                    <Send className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                                </button>
+                                    <AnimatePresence mode="wait" initial={false}>
+                                        {isSubmitting ? (
+                                            <motion.span 
+                                                className="inline-flex items-center gap-2"
+                                                initial={{ opacity: 0, y: 8 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: -8 }}
+                                                transition={{ duration: 0.15 }}
+                                                key="transmitting"
+                                            >
+                                                Transmitting...
+                                                <Loader2 className="w-3 h-3 animate-spin text-cyan-950" />
+                                            </motion.span>
+                                        ) : (
+                                            <motion.span 
+                                                className="inline-flex items-center gap-2"
+                                                initial={{ opacity: 0, y: 8 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                exit={{ opacity: 0, y: -8 }}
+                                                transition={{ duration: 0.15 }}
+                                                key="dispatch"
+                                            >
+                                                Dispatch Message
+                                                <Send className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                                            </motion.span>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.button>
                             </div>
                         </form>
                     </motion.div>
@@ -170,6 +253,6 @@ export default function Contact() {
                 </div>
 
             </div>
-        </section>
+        </motion.section>
     );
 }
