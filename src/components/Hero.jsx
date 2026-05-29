@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Mail, Terminal } from 'lucide-react';
+import { Briefcase, Mail, Terminal, FileDown } from 'lucide-react';
 import PortraitImg from '../assets/images/profile/profile.jpg';
 
 const fader = {
@@ -10,7 +10,6 @@ const fader = {
 };
 
 export default function Hero() {
-    // Smooth scroll handler matching your Navbar implementation
     const handleScroll = (e, href) => {
         e.preventDefault();
         const targetElement = document.querySelector(href);
@@ -26,7 +25,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+        <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-6 overflow-hidden">
             <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10">
 
                 {/* Left Content Column */}
@@ -38,7 +37,7 @@ export default function Hero() {
                         animate: { transition: { staggerChildren: 0.1 } }
                     }}
                 >
-                    {/* Added Your Identity System Tag Here */}
+                    {/* Identity System Tag */}
                     <motion.div
                         variants={fader}
                         className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/30 border border-slate-900 backdrop-blur-sm rounded-full mx-auto md:mx-0"
@@ -61,22 +60,36 @@ export default function Hero() {
                         Computer Science Engineer | Full Stack Developer specializing in building high-performance web applications with React, modern cloud ecosystems, and optimized database pipelines.
                     </motion.p>
 
+                    {/* Updated Responsive Action Row */}
                     <motion.div
                         variants={fader}
-                        className="flex flex-col sm:flex-row items-center gap-4 pt-2 justify-center md:justify-start"
+                        className="flex flex-col sm:flex-row flex-wrap items-center gap-3 pt-2 justify-center md:justify-start"
                     >
+                        {/* Primary Action */}
                         <a
                             href="#projects"
                             onClick={(e) => handleScroll(e, '#projects')}
-                            className="group h-12 px-6 flex items-center justify-center gap-2 bg-white text-gray-950 rounded-full text-xs font-semibold hover:bg-cyan-400 transition-colors duration-300 w-full sm:w-auto shadow-sm"
+                            className="group h-11 px-5 flex items-center justify-center gap-2 bg-white text-gray-950 rounded-lg text-xs font-semibold hover:bg-cyan-400 transition-colors duration-300 w-full sm:w-auto shadow-sm"
                         >
                             <Briefcase className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
                             View My Work
                         </a>
+
+                        {/* Added Resume Download Button */}
+                        <a
+                            href="/resume.pdf" // Ensure your resume PDF is saved as 'resume.pdf' inside the public folder
+                            download="Shiba_Murmu_Resume.pdf"
+                            className="group h-11 px-5 flex items-center justify-center gap-2 bg-slate-950/40 border border-slate-900 text-slate-300 rounded-lg text-xs font-medium hover:border-slate-700 hover:text-white backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+                        >
+                            <FileDown className="w-3.5 h-3.5 text-slate-500 group-hover:text-cyan-400 transition-colors duration-300" />
+                            Download Resume
+                        </a>
+
+                        {/* Secondary Link */}
                         <a
                             href="#contact"
                             onClick={(e) => handleScroll(e, '#contact')}
-                            className="h-12 px-6 flex items-center justify-center gap-2 border border-slate-800 text-slate-300 rounded-full text-xs font-medium hover:border-slate-500 hover:text-white transition-colors duration-300 w-full sm:w-auto"
+                            className="h-11 px-5 flex items-center justify-center gap-2 border border-slate-900/60 text-slate-400 rounded-lg text-xs font-medium hover:border-slate-700 hover:text-white transition-colors duration-300 w-full sm:w-auto"
                         >
                             <Mail className="w-3.5 h-3.5" />
                             Contact Me
