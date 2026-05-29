@@ -1,235 +1,83 @@
-@import 'tailwindcss';
-
-/* =========================================
-   ROOT VARIABLES
-========================================= */
-
-:root {
-
-  /* =========================
-     MAIN COLORS
-  ========================= */
-
-  --primary-color: #06b6d4;
-  --primary-hover: #22d3ee;
-
-  --secondary-color: #8b5cf6;
-
-  --accent-color: #0ea5e9;
-
-  /* =========================
-     BACKGROUND COLORS
-  ========================= */
-
-  --background-main: #020617;
-
-  --background-secondary: #0f172a;
-
-  --background-card: rgba(255, 255, 255, 0.05);
-
-  --background-card-hover: rgba(255, 255, 255, 0.08);
-
-  /* =========================
-     TEXT COLORS
-  ========================= */
-
-  --text-primary: #ffffff;
-
-  --text-secondary: #cbd5e1;
-
-  --text-muted: #94a3b8;
-
-  --text-dark: #0f172a;
-
-  /* =========================
-     BORDER COLORS
-  ========================= */
-
-  --border-color: rgba(255, 255, 255, 0.08);
-
-  --border-hover: rgba(34, 211, 238, 0.4);
-
-  /* =========================
-     GLOW COLORS
-  ========================= */
-
-  --glow-primary: rgba(34, 211, 238, 0.25);
-
-  --glow-secondary: rgba(139, 92, 246, 0.25);
-
-  /* =========================
-     SHADOWS
-  ========================= */
-
-  --shadow-primary:
-    0 10px 40px rgba(34, 211, 238, 0.15);
-
-  --shadow-card:
-    0 10px 30px rgba(0, 0, 0, 0.2);
-
-  /* =========================
-     RADIUS
-  ========================= */
-
-  --radius-sm: 12px;
-
-  --radius-md: 20px;
-
-  --radius-lg: 32px;
-
-  /* =========================
-     TRANSITIONS
-  ========================= */
-
-  --transition-fast: 0.3s ease;
-
-  --transition-medium: 0.5s ease;
-
-}
-
-/* =========================================
-   GLOBAL RESET
-========================================= */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* =========================================
-   HTML / BODY
-========================================= */
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-
-  font-family: 'Inter', sans-serif;
-
-  background:
-    radial-gradient(
-      circle at top,
-      #0f172a 0%,
-      #020617 70%
-    );
-
-  color: var(--text-primary);
-
-  overflow-x: hidden;
-
-  min-height: 100vh;
-
-}
-
-/* =========================================
-   SCROLLBAR
-========================================= */
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--background-main);
-}
-
-::-webkit-scrollbar-thumb {
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--primary-color),
-      var(--secondary-color)
-    );
-
-  border-radius: 999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-
-  background:
-    linear-gradient(
-      180deg,
-      var(--primary-hover),
-      var(--primary-color)
-    );
-
-}
-
-/* =========================================
-   REUSABLE UTILITIES
-========================================= */
-
-.glass-effect {
-
-  background: var(--background-card);
-
-  backdrop-filter: blur(16px);
-
-  border: 1px solid var(--border-color);
-
-  box-shadow: var(--shadow-card);
-
-}
-
-.gradient-text {
-
-  background:
-    linear-gradient(
-      to right,
-      #67e8f9,
-      #a78bfa
-    );
-
-  -webkit-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-
-}
-
-.primary-button {
-
-  background: var(--primary-color);
-
-  color: var(--text-dark);
-
-  transition: var(--transition-fast);
-
-}
-
-.primary-button:hover {
-
-  background: var(--primary-hover);
-
-  transform: translateY(-2px);
-
-}
-
-.section-padding {
-
-  padding: 7rem 1.5rem;
-
-}
-
-.container-width {
-
-  max-width: 1280px;
-
-  margin-inline: auto;
-
-}
-
-/* =========================================
-   SELECTION COLOR
-========================================= */
-
-::selection {
-
-  background: var(--primary-color);
-
-  color: white;
-
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Inter", sans-serif;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    min-height: 100vh;
+  }
+
+  /* Target the exact wrapper where Vite mounts your entire React application */
+  #root {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    z-index: 1;
+    background-color: #030712;
+
+    /* Technical Grid + Multi-Layer Aurora Flow */
+    background-image: 
+      /* Layer 1: Global Grid Lines */
+      linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.015) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.015) 1px,
+        transparent 1px
+      ),
+      /* Layer 2: Top Cyan Orb */
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(6, 182, 212, 0.05) 0%,
+          transparent 50%
+        ),
+      /* Layer 3: Right Purple Orb */
+        radial-gradient(
+          circle at 85% 45%,
+          rgba(147, 51, 234, 0.04) 0%,
+          transparent 45%
+        ),
+      /* Layer 4: Deep Bottom Indigo Glow */
+        radial-gradient(
+          circle at 50% 85%,
+          rgba(79, 70, 229, 0.03) 0%,
+          transparent 50%
+        );
+
+    background-size:
+      44px 44px,
+      44px 44px,
+      100% 100%,
+      100% 100%,
+      100% 100%;
+    background-attachment: fixed;
+  }
+
+  /* Custom minimal scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #030712;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
 }
