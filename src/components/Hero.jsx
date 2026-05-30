@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Briefcase, Mail, Terminal, FileDown } from 'lucide-react';
 import PortraitImg from '../assets/images/profile/profile.webp';
-
+import portfolioData from '../constants/Data';
 const fader = {
     initial: { opacity: 0, y: 25 },
     animate: { opacity: 1, y: 0 },
@@ -11,7 +11,7 @@ const fader = {
 
 export default function Hero() {
     // 1. Hook into scroll position for real-time scroll mechanics
-    const { scrollY } = useScroll(); 
+    const { scrollY } = useScroll();
 
     // 2. Parallax Only: Map scroll distances to positions (Removed complete fade-out to fix UI layout gaps)
     const textY = useTransform(scrollY, [0, 800], [0, 100]);
@@ -52,21 +52,23 @@ export default function Hero() {
                         className="inline-flex items-center gap-2 px-3 py-1 bg-slate-900/30 border border-slate-900 backdrop-blur-sm rounded-full mx-auto md:mx-0"
                     >
                         <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                        <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">Engineer: Shiba Murmu</span>
+                        <span className="text-[10px] font-mono tracking-widest text-slate-400 uppercase">Engineer: {portfolioData.heroData.name}</span>
                     </motion.div>
 
                     <motion.h1
                         variants={fader}
                         className="text-5xl md:text-6xl font-extrabold tracking-tighter text-white leading-[1.1]"
                     >
+                        {/* Here headlines of the user , will be displayed */}
                         Crafting seamless <span className="text-cyan-400">digital products</span> & robust backends.
+                        {/* half of the text will be in color form */}
                     </motion.h1>
 
                     <motion.p
                         variants={fader}
                         className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto md:mx-0 font-light"
                     >
-                        Computer Science Engineer | Full Stack Developer specializing in building high-performance web applications with React, modern cloud ecosystems, and optimized database pipelines.
+                        {portfolioData.heroData.description}
                     </motion.p>
 
                     {/* Action Row */}
@@ -86,7 +88,7 @@ export default function Hero() {
 
                         {/* Resume Download Button */}
                         <a
-                            href="/resume.pdf"
+                            href={portfolioData.heroData.resumeLink}
                             download="Shiba_Murmu_Resume.pdf"
                             className="group h-11 px-5 flex items-center justify-center gap-2 bg-slate-950/40 border border-slate-900 text-slate-300 rounded-lg text-xs font-medium hover:border-slate-700 hover:text-white backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
                         >
@@ -117,7 +119,7 @@ export default function Hero() {
                     <div className="relative">
                         <div className="relative p-2.5 bg-slate-900/40 backdrop-blur-md border border-slate-900 rounded-3xl shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
                             <img
-                                src={PortraitImg}
+                                src={portfolioData.heroData.image}
                                 alt="Developer Portrait"
                                 className="rounded-2xl object-cover w-full max-w-[300px] aspect-[4/5] filter grayscale contrast-125 hover:grayscale-0 transition-all duration-700"
                             />

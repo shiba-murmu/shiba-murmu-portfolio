@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Cpu, Database, Layout } from 'lucide-react';
+import portfolioData from '../constants/Data';
 
 // 1. Hardware-accelerated bezier curves optimized for performance and smooth scroll layers
 const headerVariants = {
@@ -63,17 +64,18 @@ export default function About() {
                         transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                     >
                         <div className="space-y-4">
-                            <h3 className="text-lg font-semibold text-white tracking-tight">The Stack and the Execution</h3>
+                            <h3 className="text-lg font-semibold text-white tracking-tight">{portfolioData.aboutSectionData.cardOne.title}</h3>
                             <p className="text-sm text-slate-400 leading-relaxed font-light">
-                                As a Computer Science Engineering graduate and Full Stack Developer, I don't just write scripts; I build robust digital infrastructure. My technical approach bridges scalable API architectures with highly interactive user interfaces.
+                                {portfolioData.aboutSectionData.cardOne.d1}
                             </p>
                             <p className="text-sm text-slate-400 leading-relaxed font-light">
-                                Whether deploying backend features with Django and optimizing database indexing or engineering smooth, responsive frontends in React 19, I focus entirely on system efficiency, clean component architecture, and optimal user experiences.
+                                {portfolioData.aboutSectionData.cardOne.d2}
                             </p>
                         </div>
 
                         <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-900/40">
-                            {['Full-Stack Systems', 'API Optimization', 'UI/UX Performance', 'Database Engineering'].map((tag) => (
+                            {/* Tag Chips */}
+                            {portfolioData.aboutSectionData.aboutHiglight_stack.map((tag) => (
                                 <span key={tag} className="text-[10px] font-mono px-2.5 py-1 rounded bg-slate-900/40 text-slate-400 border border-slate-900/50 hover:text-white hover:border-slate-800 transition-colors duration-200 cursor-default">
                                     {tag}
                                 </span>
@@ -95,9 +97,9 @@ export default function About() {
                             transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                         >
                             <span className="text-3xl font-extrabold text-slate-200 transition-colors group-hover:text-cyan-400 duration-300">
-                                B.Tech
+                                {portfolioData.aboutSectionData.cardTwo.course}
                             </span>
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 mt-1">Computer Science</span>
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 mt-1">{portfolioData.aboutSectionData.cardTwo.title}</span>
                         </motion.div>
 
                         {/* Stat Card 2 */}
@@ -112,9 +114,9 @@ export default function About() {
                             transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
                         >
                             <span className="text-3xl font-extrabold text-slate-200 transition-colors group-hover:text-cyan-400 duration-300">
-                                100%
+                                {portfolioData.aboutSectionData.cardThree.text}
                             </span>
-                            <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 mt-1">Component Driven</span>
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 mt-1">{portfolioData.aboutSectionData.cardThree.title}</span>
                         </motion.div>
                     </div>
 
@@ -122,18 +124,18 @@ export default function About() {
                     {[
                         {
                             icon: <Layout className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300" />,
-                            title: "Frontend Layer",
-                            desc: "Engineering highly performant dynamic rendering systems using React 19, custom hooks, and smooth layout systems like Framer Motion."
+                            title: portfolioData.aboutSectionData.cardFour.title,
+                            desc: portfolioData.aboutSectionData.cardFour.des
                         },
                         {
                             icon: <Cpu className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300" />,
-                            title: "Backend Logic",
-                            desc: "Building highly modular enterprise logic systems, secure custom JWT auth flows, and clean multi-tenant backend engines."
+                            title: portfolioData.aboutSectionData.cardFive.title,
+                            desc: portfolioData.aboutSectionData.cardFive.des
                         },
                         {
                             icon: <Database className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300" />,
-                            title: "Data Optimization",
-                            desc: "Designing structural data layouts, handling migrations smoothly, and executing precise cross-platform API queries."
+                            title: portfolioData.aboutSectionData.cardSix.title,
+                            desc: portfolioData.aboutSectionData.cardSix.des
                         }
                     ].map((item, idx) => (
                         <motion.div

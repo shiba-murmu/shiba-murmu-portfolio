@@ -2,12 +2,14 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Terminal, ArrowUpRight, FolderGit2, Layers, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
+import portfolioData from '../constants/Data';
 
 const projectData = [
     {
         title: "AI Coding Platform Core",
         type: "Intelligent Assistant Infrastructure",
         description: "Architected a contextual AI coding assistant engine optimized for fast code generation. Replaced restricted platform bots with a unified local terminal token workflow to handle multiple workspaces smoothly.",
+        image : portfolioData.projects.image,
         metrics: ["Token Latency Reduced by 40%", "Context Window Optimization"],
         tags: ["React 19", "Vite", "Tailwind CSS v4", "Framer Motion", "LLM APIs"],
         liveUrl: "https://example.com",
@@ -17,6 +19,7 @@ const projectData = [
         title: "Enterprise Career Development Hub",
         type: "Full-Stack Resource Platform",
         description: "Designed a secure career management portal featuring multi-tier user workflows. Built a responsive frontend connected to a robust data engine, utilizing strict token access systems to protect user records.",
+        image : portfolioData.projects.image,
         metrics: ["Secure State Management", "JWT Session Management"],
         tags: ["React Core", "Django REST Framework", "JWT Auth Engine", "PostgreSQL"],
         liveUrl: "https://example.com",
@@ -87,7 +90,6 @@ export default function Projects() {
     );
 }
 
-/* Isolated Card Row managing precise entry points and custom structural parallax maps */
 function ProjectCard({ project, idx }) {
     const isEven = idx % 2 === 0;
     const targetRef = useRef(null);
@@ -146,7 +148,7 @@ function ProjectCard({ project, idx }) {
                             key={tag}
                             className="px-2.5 py-1 text-[10px] font-mono text-slate-400 bg-slate-950/30 border border-slate-900 rounded-md hover:text-white hover:border-slate-800 transition-colors duration-200 cursor-default"
                         >
-                            {project.tags.map ? tag : tag}
+                            {tag}
                         </span>
                     ))}
                 </div>
@@ -188,18 +190,35 @@ function ProjectCard({ project, idx }) {
                     style={{ y: previewY }}
                     className="relative group overflow-hidden rounded-2xl border border-slate-900/60 bg-gradient-to-b from-slate-950/20 to-slate-950/5 backdrop-blur-sm p-4 sm:p-6 transition-all duration-500 hover:border-slate-700/60 shadow-lg will-change-transform"
                 >
-                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-slate-900 flex items-center justify-center group-hover:scale-[1.015] transition-transform duration-500">
-                        {/* Interactive Background Grid Zoom Shift */}
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:32px_32px] opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700" />
+                    <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden bg-slate-950 border border-slate-900 flex items-center justify-center">
 
+                        {/* 1. PROJECT BACKGROUND IMAGE WITH HOVER ZOOM SCALE */}
+                        {project.image && (
+                            <div className="absolute inset-0 z-0 overflow-hidden">
+                                <img
+                                    src={project.image}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover opacity-30 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 ease-out"
+                                />
+                                {/* Soft dark overlay gradient to ensure text/icons remain highly legible */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/60" />
+                            </div>
+                        )}
+
+                        {/* Interactive Background Grid Zoom Shift */}
+                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:32px_32px] opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700 z-1" />
+
+                        {/* Central Canvas Context Markup */}
                         <div className="text-center space-y-2 p-6 z-10">
                             {/* Icon Pulse Effect on Hover */}
-                            <div className="w-10 h-10 rounded-full bg-slate-900/50 border border-slate-800 flex items-center justify-center mx-auto shadow-inner group-hover:border-slate-700 group-hover:bg-slate-900 transition-all duration-300">
-                                <Layers className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 transition-colors duration-300" />
+                            <div className="w-10 h-10 rounded-full bg-slate-900/60 border border-slate-800 flex items-center justify-center mx-auto shadow-inner group-hover:border-slate-600 group-hover:bg-slate-900 transition-all duration-300">
+                                <Layers className="w-4 h-4 text-slate-400 group-hover:text-cyan-400 transition-colors duration-300" />
                             </div>
-                            <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase group-hover:text-slate-400 transition-colors">Deployment Canvas</p>
-                            <p className="text-xs text-slate-400 font-light max-w-[200px] mx-auto group-hover:text-slate-300 transition-colors">
-                                [ Load web application snapshot context here ]
+                            <p className="text-[10px] font-mono tracking-widest text-slate-400 uppercase group-hover:text-slate-300 transition-colors">
+                                Deployment Canvas
+                            </p>
+                            <p className="text-xs text-slate-400 font-light max-w-[220px] mx-auto group-hover:text-slate-200 transition-colors">
+                                Active production environment context snapshot
                             </p>
                         </div>
                     </div>
