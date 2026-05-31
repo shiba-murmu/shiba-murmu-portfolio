@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Send, Mail, MapPin, ShieldCheck, Loader2 } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import portfolioData from '../constants/Data';
 
 // 1. Central Layout Orchestrator Variant
 const containerVariants = {
@@ -49,7 +50,7 @@ export default function Contact() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        
+
         // Mimic secure production infrastructure validation delay
         setTimeout(() => {
             setIsSubmitting(false);
@@ -59,8 +60,8 @@ export default function Contact() {
     };
 
     return (
-        <motion.section 
-            id="contact" 
+        <motion.section
+            id="contact"
             className="relative py-24 px-6 overflow-hidden"
             variants={containerVariants}
             initial="hidden"
@@ -69,7 +70,7 @@ export default function Contact() {
         >
             {/* Ambient Background Grid Nodes */}
             <div className="absolute inset-0 pointer-events-none opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]" />
-            
+
             <div className="max-w-7xl mx-auto w-full relative z-10">
 
                 {/* Section Header Grid Anchor */}
@@ -88,7 +89,7 @@ export default function Contact() {
 
                     {/* Left Context Pane: Parameter Records */}
                     <div className="grid grid-cols-1 lg:col-span-5 gap-8">
-                        
+
                         <motion.div className="space-y-3" variants={itemVariants}>
                             <h3 className="text-xl font-bold tracking-tight text-slate-200">System Parameters</h3>
                             <p className="text-sm text-slate-400 leading-relaxed font-light">
@@ -98,7 +99,7 @@ export default function Contact() {
 
                         {/* Structured Interactive Communication Nodes */}
                         <div className="space-y-4 font-mono text-xs">
-                            <motion.div 
+                            <motion.div
                                 className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm cursor-pointer"
                                 variants={cardVariants}
                                 whileHover="hover"
@@ -108,13 +109,13 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-slate-500 uppercase tracking-wider">Direct Mailbox</p>
-                                    <a href="mailto:shibamurmu.dev@gmail.com" className="text-slate-300 hover:text-cyan-400 transition-colors">
-                                        shibamurmu.dev@gmail.com
+                                    <a href={`mailto:${portfolioData.contactData.email}`} className="text-slate-300 hover:text-cyan-400 transition-colors">
+                                        {portfolioData.contactData.email}
                                     </a>
                                 </div>
                             </motion.div>
 
-                            <motion.div 
+                            <motion.div
                                 className="flex items-center gap-4 p-4 rounded-xl bg-slate-950/20 border border-slate-900/60 backdrop-blur-sm"
                                 variants={cardVariants}
                                 whileHover="hover"
@@ -124,7 +125,7 @@ export default function Contact() {
                                 </div>
                                 <div>
                                     <p className="text-[10px] text-slate-500 uppercase tracking-wider">Operational Node</p>
-                                    <p className="text-slate-300 font-light">Jamshedpur, Jharkhand, India</p>
+                                    <p className="text-slate-300 font-light">{portfolioData.contactData.location}</p>
                                 </div>
                             </motion.div>
                         </div>
@@ -134,7 +135,7 @@ export default function Contact() {
                             <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase">External Core Directories</p>
                             <div className="flex items-center gap-3">
                                 <motion.a
-                                    href="https://github.com"
+                                    href={portfolioData.contactData.socialLinks.github}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors duration-200"
@@ -144,7 +145,7 @@ export default function Contact() {
                                     <FaGithub className="w-4 h-4" />
                                 </motion.a>
                                 <motion.a
-                                    href="https://linkedin.com"
+                                    href={portfolioData.contactData.socialLinks.linkedin}
                                     target="_blank"
                                     rel="noreferrer"
                                     className="w-10 h-10 rounded-xl bg-slate-950/40 border border-slate-900 flex items-center justify-center text-slate-400 hover:text-white hover:border-slate-700 transition-colors duration-200"
@@ -220,7 +221,7 @@ export default function Contact() {
                                 >
                                     <AnimatePresence mode="wait" initial={false}>
                                         {isSubmitting ? (
-                                            <motion.span 
+                                            <motion.span
                                                 className="inline-flex items-center gap-2"
                                                 initial={{ opacity: 0, y: 8 }}
                                                 animate={{ opacity: 1, y: 0 }}
@@ -232,7 +233,7 @@ export default function Contact() {
                                                 <Loader2 className="w-3 h-3 animate-spin text-cyan-950" />
                                             </motion.span>
                                         ) : (
-                                            <motion.span 
+                                            <motion.span
                                                 className="inline-flex items-center gap-2"
                                                 initial={{ opacity: 0, y: 8 }}
                                                 animate={{ opacity: 1, y: 0 }}

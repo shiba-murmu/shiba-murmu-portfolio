@@ -1,6 +1,7 @@
 import React from 'react';
 import { Terminal, Shield, ArrowUp, Orbit } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
+import portfolioData from '../constants/Data';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -32,7 +33,7 @@ export default function Footer() {
                     <div className="grid grid-cols-2 sm:flex items-center gap-x-8 gap-y-4 font-mono text-[10px] text-slate-500">
                         <div>
                             <p className="text-slate-600 uppercase tracking-wider mb-0.5">Location Index</p>
-                            <p className="text-slate-400 font-light">Jamshedpur, IN</p>
+                            <p className="text-slate-400 font-light">{portfolioData.contactData.location}</p>
                         </div>
                         <div>
                             <p className="text-slate-600 uppercase tracking-wider mb-0.5">Environment</p>
@@ -65,7 +66,7 @@ export default function Footer() {
                         {/* Minimal Icon Core Cluster */}
                         <div className="flex items-center gap-4">
                             <a
-                                href="https://github.com"
+                                href={portfolioData.contactData.socialLinks.github}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="text-slate-500 hover:text-white transition-colors duration-200"
@@ -73,7 +74,7 @@ export default function Footer() {
                                 <FaGithub className="w-4 h-4" />
                             </a>
                             <a
-                                href="https://linkedin.com"
+                                href={portfolioData.contactData.socialLinks.linkedin}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="text-slate-500 hover:text-white transition-colors duration-200"
