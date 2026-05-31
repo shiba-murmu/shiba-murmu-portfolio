@@ -1,7 +1,11 @@
 import profileImage from "../assets/images/profile/profile.webp";
 import resume from "../assets/resume/resume.pdf";
-import apnashop from '../assets/images/projects/apnashop.png'
+import apnashop from "../assets/images/projects/apnashop.png";
+import careerlift from "../assets/images/projects/careerlift.png";
+import chichat from "../assets/images/projects/chichat.png";
+import foodiemedia from "../assets/images/projects/foodiemedia.png";
 const portfolioData = {
+  // Hero.jsx section showcase .
   heroData: {
     name: "Shiba Murmu",
     title: "Software Engineer",
@@ -12,6 +16,7 @@ const portfolioData = {
     resumeLink: resume,
   },
 
+  //   About sections showcase : About.jsx
   //   This data is for using about section in about.jsx file
   aboutSectionData: {
     aboutHiglight_stack: [
@@ -48,18 +53,78 @@ const portfolioData = {
     },
   },
 
-  projects : {
-    title : 'Ecommerce website',
-    image : apnashop,
-    description : '',
-    techStack : ['Django', 'Tailwind CSS', 'Framer Motion', 'React 19'],
-    githubLink : '',
-    liveDemoLink : ''
-  }
+  //   Production showcase : projects sections
+  //   In this section we will show the projects that we have done in the past and we will show the project name, description, tech stack, github link and live demo link.
 
+  // use just add the project in the projects array and it will be displayed in the projects section of the website. we can add as many projects as we want and it will be displayed in the projects section of the website.
+  projects: [
+    {
+      title: "APNA SHOPPING",
+      type: "Ecommerce Web Application",
+      description:
+        "Developed a full-stack ecommerce platform with a React 19 frontend and Django backend. Engineered a dynamic product catalog, secure user authentication, and seamless checkout flow, optimizing performance and user experience across devices.",
+      image: apnashop,
+      metrics: ["Token Latency Reduced by 40%", "Context Window Optimization"],
+      tags: ["React 19", "Django", "Tailwind CSS", "Framer Motion"],
+      liveUrl: "https://apna-shop-eta.vercel.app/",
+      githubUrl: "https://github.com/shiba-murmu/Apna-shop",
+    },
+    {
+      title: "CAREERLIFT SYSTEM MANAGEMENT",
+      type: "Full-Stack Resource Platform",
+      description:
+        "Designed a secure career management portal featuring multi-tier user workflows. Built a responsive frontend connected to a robust data engine, utilizing strict token access systems to protect user records.",
+      image: careerlift,
+      metrics: ["Secure State Management", "JWT Session Management"],
+      tags: [
+        "React 19",
+        "react-toastify",
+        "gsap",
+        "material ui",
+        "flowbite-react",
+        "Tailwind CSS",
+        "Framer Motion",
+        "swipper",
+        "tsparticles",
+      ],
+      liveUrl: "https://career-lift-system.vercel.app/",
+      githubUrl: "https://github.com/shiba-murmu/career-lift-system-project",
+    },
+    {
+      title: "CHICHAT",
+      type: "Real-time messaging web Application",
+      description:
+        "Built a real-time chat application with a modern UI, enabling seamless communication between users with features like message persistence and user authentication.",
+      image: chichat,
+      metrics: ["Real-time Messaging", "User Authentication"],
+      tags: ["React 19", "react-toastify", "Tailwind CSS"],
+      liveUrl: "https://new-version-chichat.vercel.app/",
+      githubUrl: "https://github.com/shiba-murmu/ChiChat",
+    },
+    {
+      title: "FOODIE MEDIA",
+      type: "Food Delivery Web Application",
+      description:
+        "Developed a full-stack food delivery platform with a React 19 frontend and Django backend. Engineered a dynamic menu system, secure user authentication, and seamless order processing flow, optimizing performance and user experience across devices.",
+      image: foodiemedia,
+      metrics: ["Token Latency Reduced by 40%", "Context Window Optimization"],
+      tags: ["React 19", "Tailwind CSS", "React-slick", "Slick-carousel"],
+      liveUrl: "https://foodiemedia.vercel.app/home",
+      githubUrl: "https://github.com/shiba-murmu/Discover-your-recipe",
+    },
+  ],
 
-
-
+  //   Contact section data : Contact.jsx
+  contactData: {
+    email: "shibamurmu001@gmail.com",
+    phone: "+91 620447413",
+    location: "Jamshedpur, Jharkhand, IN",
+    socialLinks: {
+      github: "https://github.com/shiba-murmu",
+      linkedin: "https://www.linkedin.com/in/shibamurmu/",
+      instagram: "https://www.instagram.com/shibajsr/",
+    },
+  },
 };
 
 export default portfolioData;

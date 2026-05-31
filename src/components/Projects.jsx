@@ -3,30 +3,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Terminal, ArrowUpRight, FolderGit2, Layers, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 import portfolioData from '../constants/Data';
-
-const projectData = [
-    {
-        title: "AI Coding Platform Core",
-        type: "Intelligent Assistant Infrastructure",
-        description: "Architected a contextual AI coding assistant engine optimized for fast code generation. Replaced restricted platform bots with a unified local terminal token workflow to handle multiple workspaces smoothly.",
-        image : portfolioData.projects.image,
-        metrics: ["Token Latency Reduced by 40%", "Context Window Optimization"],
-        tags: ["React 19", "Vite", "Tailwind CSS v4", "Framer Motion", "LLM APIs"],
-        liveUrl: "https://example.com",
-        githubUrl: "https://github.com"
-    },
-    {
-        title: "Enterprise Career Development Hub",
-        type: "Full-Stack Resource Platform",
-        description: "Designed a secure career management portal featuring multi-tier user workflows. Built a responsive frontend connected to a robust data engine, utilizing strict token access systems to protect user records.",
-        image : portfolioData.projects.image,
-        metrics: ["Secure State Management", "JWT Session Management"],
-        tags: ["React Core", "Django REST Framework", "JWT Auth Engine", "PostgreSQL"],
-        liveUrl: "https://example.com",
-        githubUrl: "https://github.com"
-    }
-];
-
 // Hardware-accelerated hardware curves 
 const headerVariants = {
     initial: { opacity: 0, y: 30 },
@@ -80,7 +56,7 @@ export default function Projects() {
 
                 {/* Asymmetrical Layout Stack */}
                 <div className="space-y-32">
-                    {projectData.map((project, idx) => (
+                    {portfolioData.projects.map((project, idx) => (
                         <ProjectCard key={project.title} project={project} idx={idx} />
                     ))}
                 </div>
