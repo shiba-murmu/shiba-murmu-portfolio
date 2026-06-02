@@ -4,6 +4,7 @@ import apnashop from "../assets/images/projects/apnashop.png";
 import careerlift from "../assets/images/projects/careerlift.png";
 import chichat from "../assets/images/projects/chichat.png";
 import foodiemedia from "../assets/images/projects/foodiemedia.png";
+import buyme from "../assets/images/projects/buyme.png";
 const portfolioData = {
   // Hero.jsx section showcase .
   heroData: {
@@ -112,6 +113,16 @@ const portfolioData = {
       liveUrl: "https://foodiemedia.vercel.app/home",
       githubUrl: "https://github.com/shiba-murmu/Discover-your-recipe",
     },
+    {
+        title : 'BUYME',
+        type : 'Ecommerce website [ internship project ]',
+        description : 'Developed a full-stack ecommerce platform with a React 19 frontend and Django backend. Engineered a dynamic product catalog, secure user authentication, and seamless checkout flow, optimizing performance and user experience across devices.',
+        image : buyme,
+        metrics : ['Token Latency Reduced by 40%', 'Context Window Optimization'],
+        tags : ['Html','css', 'Php', 'Bootstrap'],
+        liveUrl : 'not found',
+        githubUrl : 'https://github.com/shiba-murmu/buyme-project'
+    }
   ],
 
   //   Contact section data : Contact.jsx
