@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Briefcase, GraduationCap, Calendar, Cpu, CheckCircle2, Activity } from 'lucide-react';
+import portfolioData from '../constants/Data';
 
 // Unified hardware-accelerated Bezier curve motion primitives
 const headerVariants = {
@@ -48,51 +49,61 @@ const nodeVariants = {
     }
 };
 
-const experienceData = [
-    {
-        role: "Web Development Intern",
-        organization: "Zidio Development",
-        duration: "Apr 2026 — Present",
-        borderColor: "from-cyan-500/30 to-blue-500/10",
-        glowColor: "rgba(6, 182, 212, 0.12)",
-        iconColor: "text-cyan-400",
-        description: "Successfully processed comprehensive skill evaluations and integrated modern web interface systems. Collaborating on system performance optimizations and building clean, responsive functional modules.",
-        milestones: ["Completed targeted tech skill assessments", "Maintained highly responsive front-end components"]
-    },
-    {
-        role: "Professional Internship Program",
-        organization: "Perpex",
-        duration: "Sep 2025 — Oct 2025",
-        borderColor: "from-cyan-500/30 to-blue-500/10",
-        glowColor: "rgba(6, 182, 212, 0.12)",
-        iconColor: "text-cyan-400",
-        description: "Selected to participate in professional agile sprint environments. Successfully configured enterprise version control parameters, localized remote code bases, and managed repository branch workflows safely.",
-        milestones: ["Configured multi-branch repository cloning workflows", "Reviewed code base logic loops in fast-paced sprints"]
-    },
-    {
-        role: "Junior Web Developer",
-        organization: "Mello",
-        duration: "Jun 2025 — Aug 2025",
-        borderColor: "from-cyan-500/30 to-blue-500/10",
-        glowColor: "rgba(6, 182, 212, 0.12)",
-        iconColor: "text-cyan-400",
-        description: "Secured placement engineering role following standard application sprints. Built full-stack responsive web systems and refined interactive application interfaces using micro-component patterns.",
-        milestones: ["Cracked technical candidate evaluation track", "Designed lightweight UI states to handle variable user data"]
-    }
-];
+// const experienceData = [
+//     {
+//         role: "Web Development Intern",
+//         organization: "Zidio Development",
+//         duration: "Apr 2026 — Present",
+//         borderColor: "from-cyan-500/30 to-blue-500/10",
+//         glowColor: "rgba(6, 182, 212, 0.12)",
+//         iconColor: "text-cyan-400",
+//         description: "Successfully processed comprehensive skill evaluations and integrated modern web interface systems. Collaborating on system performance optimizations and building clean, responsive functional modules.",
+//         milestones: ["Completed targeted tech skill assessments", "Maintained highly responsive front-end components"]
+//     },
+//     {
+//         role: "Professional Internship Program",
+//         organization: "Perpex",
+//         duration: "Sep 2025 — Oct 2025",
+//         borderColor: "from-cyan-500/30 to-blue-500/10",
+//         glowColor: "rgba(6, 182, 212, 0.12)",
+//         iconColor: "text-cyan-400",
+//         description: "Selected to participate in professional agile sprint environments. Successfully configured enterprise version control parameters, localized remote code bases, and managed repository branch workflows safely.",
+//         milestones: ["Configured multi-branch repository cloning workflows", "Reviewed code base logic loops in fast-paced sprints"]
+//     },
+//     {
+//         role: "Junior Web Developer",
+//         organization: "Mello",
+//         duration: "Jun 2025 — Aug 2025",
+//         borderColor: "from-cyan-500/30 to-blue-500/10",
+//         glowColor: "rgba(6, 182, 212, 0.12)",
+//         iconColor: "text-cyan-400",
+//         description: "Secured placement engineering role following standard application sprints. Built full-stack responsive web systems and refined interactive application interfaces using micro-component patterns.",
+//         milestones: ["Cracked technical candidate evaluation track", "Designed lightweight UI states to handle variable user data"]
+//     }
+// ];
 
-const educationData = [
-    {
-        degree: "B.Tech in Computer Science and Engineering",
-        institution: "Jharkhand University of Technology",
-        duration: "2021 — 2025",
-        borderColor: "from-purple-500/30 to-pink-500/10",
-        glowColor: "rgba(147, 51, 234, 0.12)",
-        iconColor: "text-purple-400",
-        description: "Successfully completed full 8th Semester core computer science curriculum requirements. Specialization focus tailored toward algorithms, advanced engineering architectures, database logic, and scalable web routing scripts.",
-        milestones: ["Completed 8th Sem CSE academic requirements", "Core architecture thesis tailored to web applications"]
-    }
-];
+// const educationData = [
+//     {
+//         degree: "B.Tech in Computer Science and Engineering",
+//         institution: "Jharkhand University of Technology",
+//         duration: "2021 — 2025",
+//         borderColor: "from-purple-500/30 to-pink-500/10",
+//         glowColor: "rgba(147, 51, 234, 0.12)",
+//         iconColor: "text-purple-400",
+//         description: "Successfully completed full 8th Semester core computer science curriculum requirements. Specialization focus tailored toward algorithms, advanced engineering architectures, database logic, and scalable web routing scripts.",
+//         milestones: ["Completed 8th Sem CSE academic requirements", "Core architecture thesis tailored to web applications"]
+//     },
+//     {
+//         degree: "Intermediate in Science",
+//         institution: "Central Board of Secondary Education (CBSE)",
+//         duration: "2021 — 2025",
+//         borderColor: "from-purple-500/30 to-pink-500/10",
+//         glowColor: "rgba(147, 51, 234, 0.12)",
+//         iconColor: "text-purple-400",
+//         description: "Successfully completed full 8th Semester core computer science curriculum requirements. Specialization focus tailored toward algorithms, advanced engineering architectures, database logic, and scalable web routing scripts.",
+//         milestones: ["Completed 8th Sem CSE academic requirements", "Core architecture thesis tailored to web applications"]
+//     },
+// ];
 
 export default function EducationAndExperience() {
     return (
@@ -151,7 +162,7 @@ export default function EducationAndExperience() {
                                 variants={axisVariants}
                             />
 
-                            {experienceData.map((item, idx) => (
+                            {portfolioData.experienceData.map((item, idx) => (
                                 <TimelineCard key={`${item.role}-${idx}`} item={item} type="experience" />
                             ))}
                         </motion.div>
@@ -189,7 +200,7 @@ export default function EducationAndExperience() {
                                 variants={axisVariants}
                             />
 
-                            {educationData.map((item, idx) => (
+                            {portfolioData.educationData.map((item, idx) => (
                                 <TimelineCard key={`${item.degree}-${idx}`} item={item} type="education" />
                             ))}
                         </motion.div>
@@ -244,8 +255,8 @@ function TimelineCard({ item, type }) {
             {/* Timeline Node Ring Anchor (Animated & Reacts to Hover) */}
             <motion.div
                 className={`absolute -left-[31px] top-7 w-2.5 h-2.5 rounded-full bg-slate-950 border-2 ${isHovered
-                        ? (isExp ? 'border-cyan-500 scale-125' : 'border-purple-500 scale-125')
-                        : 'border-slate-800'
+                    ? (isExp ? 'border-cyan-500 scale-125' : 'border-purple-500 scale-125')
+                    : 'border-slate-800'
                     } transition-all duration-300 z-10`}
                 variants={nodeVariants}
             />

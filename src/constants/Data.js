@@ -114,15 +114,16 @@ const portfolioData = {
       githubUrl: "https://github.com/shiba-murmu/Discover-your-recipe",
     },
     {
-        title : 'BUYME',
-        type : 'Ecommerce website [ internship project ]',
-        description : 'Developed a full-stack ecommerce platform with a React 19 frontend and Django backend. Engineered a dynamic product catalog, secure user authentication, and seamless checkout flow, optimizing performance and user experience across devices.',
-        image : buyme,
-        metrics : ['Token Latency Reduced by 40%', 'Context Window Optimization'],
-        tags : ['Html','css', 'Php', 'Bootstrap'],
-        liveUrl : 'not found',
-        githubUrl : 'https://github.com/shiba-murmu/buyme-project'
-    }
+      title: "BUYME",
+      type: "Ecommerce website [ internship project ]",
+      description:
+        "Developed a full-stack ecommerce platform with a React 19 frontend and Django backend. Engineered a dynamic product catalog, secure user authentication, and seamless checkout flow, optimizing performance and user experience across devices.",
+      image: buyme,
+      metrics: ["Token Latency Reduced by 40%", "Context Window Optimization"],
+      tags: ["Html", "css", "Php", "Bootstrap"],
+      liveUrl: "not found",
+      githubUrl: "https://github.com/shiba-murmu/buyme-project",
+    },
   ],
 
   //   Contact section data : Contact.jsx
@@ -136,6 +137,100 @@ const portfolioData = {
       instagram: "https://www.instagram.com/shibajsr/",
     },
   },
+
+  //   Education and experience data will display here
+
+  //   education data will be displayed in the education section of the website. we can add as many education as we want and it will be displayed in the education section of the website. we can also add milestones for each education and it will be displayed in the education section of the website.
+  educationData: [
+    {
+      degree: "B.Tech in Computer Science and Engineering",
+      institution: "Jharkhand University of Technology",
+      duration: "2021 — 2025",
+      borderColor: "from-purple-500/30 to-pink-500/10",
+      glowColor: "rgba(147, 51, 234, 0.12)",
+      iconColor: "text-purple-400",
+      description:
+        "Successfully completed full 8th Semester core computer science curriculum requirements. Specialization focus tailored toward algorithms, advanced engineering architectures, database logic, and scalable web routing scripts.",
+      milestones: [
+        "Completed 8th Sem CSE academic requirements",
+        "Core architecture thesis tailored to web applications",
+      ],
+    },
+    {
+      degree: "Intermediate in Science",
+      institution: "Central Board of Secondary Education (CBSE)",
+      duration: "2019 — 2021",
+      borderColor: "from-purple-500/30 to-pink-500/10",
+      glowColor: "rgba(147, 51, 234, 0.12)",
+      iconColor: "text-purple-400",
+      description:
+        "Successfully completed the intermediate science curriculum with a focus on mathematics, physics, and Physical education. Developed a strong foundation in scientific principles and analytical thinking, preparing for advanced studies in computer science engineering.",
+      milestones: [
+        "Completed intermediate science curriculum with a focus on mathematics, physics, and Physical education",
+        "Developed a strong foundation in scientific principles and analytical thinking",
+      ],
+    },
+    {
+      degree: "Matriculation",
+      institution: "Central Board of Secondary Education (CBSE)",
+      duration: "2009 - 2019",
+      borderColor: "from-purple-500/30 to-pink-500/10",
+      glowColor: "rgba(147, 51, 234, 0.12)",
+      iconColor: "text-purple-400",
+      description:
+        "Successfully completed the matriculation curriculum with a focus on core sciences and mathematics. Built a solid academic foundation for further studies in computer science and engineering.",
+      milestones: [
+        "Completed matriculation curriculum with a focus on core sciences and mathematics",
+        "Built a solid academic foundation for further studies in computer science and engineering",
+      ],
+    },
+  ],
+
+  //   Experience data will be displayed in the experience section of the website. we can add as many experience as we want and it will be displayed in the experience section of the website. we can also add milestones for each experience and it will be displayed in the experience section of the website.
+  experienceData: [
+    {
+      role: "Web Development Internship",
+      organization: "Generix info tech",
+      duration: "Jun 2025 — Aug 2025",
+      borderColor: "from-cyan-500/30 to-blue-500/10",
+      glowColor: "rgba(6, 182, 212, 0.12)",
+      iconColor: "text-cyan-400",
+      description:
+        "Successfully processed comprehensive skill evaluations and integrated modern web interface systems. Collaborating on system performance optimizations and building clean, responsive functional modules.",
+      milestones: [
+        "Completed targeted tech skill assessments",
+        "Maintained highly responsive front-end components",
+      ],
+    },
+    {
+      role: "Professional Internship Program",
+      organization: "Perpex",
+      duration: "Sep 2025 — Oct 2025",
+      borderColor: "from-cyan-500/30 to-blue-500/10",
+      glowColor: "rgba(6, 182, 212, 0.12)",
+      iconColor: "text-cyan-400",
+      description:
+        "Selected to participate in professional agile sprint environments. Successfully configured enterprise version control parameters, localized remote code bases, and managed repository branch workflows safely.",
+      milestones: [
+        "Configured multi-branch repository cloning workflows",
+        "Reviewed code base logic loops in fast-paced sprints",
+      ],
+    },
+    {
+      role: "Junior Web Developer",
+      organization: "Mello",
+      duration: "Jun 2025 — Aug 2025",
+      borderColor: "from-cyan-500/30 to-blue-500/10",
+      glowColor: "rgba(6, 182, 212, 0.12)",
+      iconColor: "text-cyan-400",
+      description:
+        "Secured placement engineering role following standard application sprints. Built full-stack responsive web systems and refined interactive application interfaces using micro-component patterns.",
+      milestones: [
+        "Cracked technical candidate evaluation track",
+        "Designed lightweight UI states to handle variable user data",
+      ],
+    },
+  ],
 };
 
 export default portfolioData;
