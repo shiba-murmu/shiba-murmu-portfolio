@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Terminal, Send, Mail, MapPin, ShieldCheck, Loader2 } from 'lucide-react';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa6';
 import portfolioData from '../constants/Data';
+import emailjs from '@emailjs/browser';
+import { toast, ToastContainer } from 'react-toastify';
+
 
 // 1. Central Layout Orchestrator Variant
 const containerVariants = {
@@ -51,12 +54,33 @@ export default function Contact() {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Mimic secure production infrastructure validation delay
-        setTimeout(() => {
-            setIsSubmitting(false);
-            alert('Secure payload dispatched successfully.');
-            setFormState({ name: '', email: '', message: '' });
-        }, 1200);
+        const templateParams = {
+            from_name: formState.name,
+            from_email: formState.email,
+            message: formState.message,
+        };
+
+        // 2. Dispatch the payload using EmailJS
+        emailjs.send(
+            'service_ijrm87b',   // Replace with your Service ID
+            'template_r9c6ket',  // Replace with your Template ID
+            templateParams,
+            'QoDbsUGWlLCaqvqjS'    // Replace with your Public Key
+        )
+            .then((response) => {
+                // Success block running after real infrastructure dispatch
+                toast.success('Secure payload dispatched successfully.');
+                setFormState({ name: '', email: '', message: '' });
+            })
+            .catch((error) => {
+                // Error handling if network or keys fail
+                console.error('EmailJS Error:', error);
+                toast.error('Payload delivery failed. Please try again.');
+            })
+            .finally(() => {
+                // Always stop the loading state whether it succeeds or fails
+                setIsSubmitting(false);
+            });
     };
 
     return (
@@ -254,6 +278,7 @@ export default function Contact() {
                 </div>
 
             </div>
+            <ToastContainer position="bottom-right" theme="dark" />
         </motion.section>
     );
 }
