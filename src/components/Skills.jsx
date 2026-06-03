@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Layout, Cpu, Database, GitBranch, Terminal, Orbit, Activity } from 'lucide-react';
+import portfolioData from '../constants/Data';
 
 const skillGroups = [
     {
@@ -9,7 +10,7 @@ const skillGroups = [
         borderColor: "from-cyan-500/30 to-blue-500/10",
         glowColor: "rgba(6, 182, 212, 0.15)",
         description: "Architecting complex, state-driven user interfaces with sub-pixel rendering accuracy.",
-        skills: ["React 19", "Vite", "Tailwind CSS v4", "Framer Motion", "TypeScript", "Next.js Core"]
+        skills: portfolioData.skillSet.frontend
     },
     {
         category: "Backend Engineering",
@@ -17,7 +18,7 @@ const skillGroups = [
         borderColor: "from-purple-500/30 to-pink-500/10",
         glowColor: "rgba(147, 51, 234, 0.15)",
         description: "Building resilient microservices, custom distributed logic systems, and secure API networks.",
-        skills: ["Python", "Django", "Node.js", "RESTful APIs", "JWT Auth Engine", "Java"]
+        skills: portfolioData.skillSet.backend
     },
     {
         category: "Database & Cloud",
@@ -25,7 +26,7 @@ const skillGroups = [
         borderColor: "from-emerald-500/30 to-cyan-500/10",
         glowColor: "rgba(16, 185, 129, 0.15)",
         description: "Designing structural relational schemas, handling object stores, and scaling serverless instances.",
-        skills: ["PostgreSQL", "MongoDB", "Firebase", "SQL Optimization", "Vercel Systems", "Railway"]
+        skills: portfolioData.skillSet.database
     },
     {
         category: "Developer Tooling",
@@ -33,7 +34,7 @@ const skillGroups = [
         borderColor: "from-blue-500/30 to-purple-500/10",
         glowColor: "rgba(59, 130, 246, 0.15)",
         description: "Maintaining deterministic git workflows, CI/CD pipelines, and high-fidelity wireframes.",
-        skills: ["Git / GitHub", "Lucide Architecture", "Lenis Smooth Scroll", "Vibe Coding Assets", "Clean Architecture", "UI/UX Prototyping"]
+        skills: portfolioData.skillSet.tooling
     }
 ];
 
