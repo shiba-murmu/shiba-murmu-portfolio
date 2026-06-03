@@ -202,34 +202,34 @@ const portfolioData = {
         "Maintained highly responsive front-end components",
       ],
     },
-    {
-      role: "Professional Internship Program",
-      organization: "Perpex",
-      duration: "Sep 2025 — Oct 2025",
-      borderColor: "from-cyan-500/30 to-blue-500/10",
-      glowColor: "rgba(6, 182, 212, 0.12)",
-      iconColor: "text-cyan-400",
-      description:
-        "Selected to participate in professional agile sprint environments. Successfully configured enterprise version control parameters, localized remote code bases, and managed repository branch workflows safely.",
-      milestones: [
-        "Configured multi-branch repository cloning workflows",
-        "Reviewed code base logic loops in fast-paced sprints",
-      ],
-    },
-    {
-      role: "Junior Web Developer",
-      organization: "Mello",
-      duration: "Jun 2025 — Aug 2025",
-      borderColor: "from-cyan-500/30 to-blue-500/10",
-      glowColor: "rgba(6, 182, 212, 0.12)",
-      iconColor: "text-cyan-400",
-      description:
-        "Secured placement engineering role following standard application sprints. Built full-stack responsive web systems and refined interactive application interfaces using micro-component patterns.",
-      milestones: [
-        "Cracked technical candidate evaluation track",
-        "Designed lightweight UI states to handle variable user data",
-      ],
-    },
+    // {
+    //   role: "Professional Internship Program",
+    //   organization: "Perpex",
+    //   duration: "Sep 2025 — Oct 2025",
+    //   borderColor: "from-cyan-500/30 to-blue-500/10",
+    //   glowColor: "rgba(6, 182, 212, 0.12)",
+    //   iconColor: "text-cyan-400",
+    //   description:
+    //     "Selected to participate in professional agile sprint environments. Successfully configured enterprise version control parameters, localized remote code bases, and managed repository branch workflows safely.",
+    //   milestones: [
+    //     "Configured multi-branch repository cloning workflows",
+    //     "Reviewed code base logic loops in fast-paced sprints",
+    //   ],
+    // },
+    // {
+    //   role: "Junior Web Developer",
+    //   organization: "Mello",
+    //   duration: "Jun 2025 — Aug 2025",
+    //   borderColor: "from-cyan-500/30 to-blue-500/10",
+    //   glowColor: "rgba(6, 182, 212, 0.12)",
+    //   iconColor: "text-cyan-400",
+    //   description:
+    //     "Secured placement engineering role following standard application sprints. Built full-stack responsive web systems and refined interactive application interfaces using micro-component patterns.",
+    //   milestones: [
+    //     "Cracked technical candidate evaluation track",
+    //     "Designed lightweight UI states to handle variable user data",
+    //   ],
+    // },
   ],
 };
 
