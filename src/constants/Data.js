@@ -1,3 +1,4 @@
+import React, { useState, useRef } from "react";
 import profileImage from "../assets/images/profile/profile.webp";
 import resume from "../assets/resume/resume.pdf";
 import apnashop from "../assets/images/projects/apnashop.png";
@@ -5,6 +6,8 @@ import careerlift from "../assets/images/projects/careerlift.png";
 import chichat from "../assets/images/projects/chichat.png";
 import foodiemedia from "../assets/images/projects/foodiemedia.png";
 import buyme from "../assets/images/projects/buyme.png";
+import { Layout, Cpu, Database, GitBranch } from "lucide-react";
+import { backIn } from "framer-motion";
 const portfolioData = {
   // Hero.jsx section showcase .
   heroData: {
@@ -231,6 +234,27 @@ const portfolioData = {
     //   ],
     // },
   ],
+
+  //   this data is belongs to skills group set,
+  skillSet: {
+    frontend: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "Bootstrap 5",
+    ],
+    backend: ["Python", "Django", "RESTful APIs", "JWT Auth Engine"],
+    database: ["PostgreSQL", "Firebase", "MySQL", "Vercel Systems"],
+    tooling: [
+      "Git / GitHub",
+      "Lucide Architecture",
+      "Lenis Smooth Scroll",
+      "Vibe Coding Assets",
+      "Clean Architecture",
+      "Post man",
+    ],
+  },
 };
 
 export default portfolioData;
